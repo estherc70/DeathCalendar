@@ -1,2 +1,28 @@
+import javax.swing.JFrame;
 public class DeathCalendar {
+
+    public DeathCalendar() {
+        // creates a JFrame (a window)
+        JFrame frame = new JFrame("Death Calendar");
+
+        // apply setting to that clicking X in top right of window will close window and end program
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // set frame to have 300 width, 200 height
+        frame.setSize(1500, 1000);
+
+        // auto-center the frame on the screen
+        frame.setLocationRelativeTo(null);
+
+        // create a DisplayPanel object
+        DisplayPanel panel = new DisplayPanel();
+
+        // add it to the frame
+        frame.add(panel);
+
+        // display the frame (window)
+        frame.setVisible(true);
+
+
+    }
 }
