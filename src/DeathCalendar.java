@@ -15,10 +15,10 @@ public class DeathCalendar {
         frame.setLocationRelativeTo(null);
 
         // create a DisplayPanel object
-        DisplayPanel panel = new DisplayPanel(frame);
+        //DisplayPanel panel = new DisplayPanel(frame);
 
         // add it to the frame
-        frame.add(panel);
+        //frame.add(panel);
 
         // display the frame (window)
         frame.setVisible(true);
