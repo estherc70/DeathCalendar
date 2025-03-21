@@ -9,7 +9,7 @@ public class DeathCalendar {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // set frame to have 300 width, 200 height
-        frame.setSize(1500, 1000);
+        frame.setSize(900, 700);
 
         // auto-center the frame on the screen
         frame.setLocationRelativeTo(null);
