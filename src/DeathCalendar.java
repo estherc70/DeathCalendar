@@ -1,3 +1,5 @@
+import jlistcardlayout.CardLayoutPanel;
+
 import javax.swing.JFrame;
 public class DeathCalendar {
 
@@ -15,10 +17,11 @@ public class DeathCalendar {
         frame.setLocationRelativeTo(null);
 
         // create a DisplayPanel object
-        //DisplayPanel panel = new DisplayPanel(frame);
+        CardLayoutPanel panel = new CardLayoutPanel();
 
         // add it to the frame
-        //frame.add(panel);
+
+
 
         // display the frame (window)
         frame.setVisible(true);
