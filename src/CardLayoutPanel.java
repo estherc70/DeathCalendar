@@ -22,7 +22,7 @@ public class CardLayoutPanel extends JFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g); // Ensure the panel is properly rendered
                 // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/Startbackgroundrefactored.png");
+                ImageIcon backgroundIcon = new ImageIcon("src/StartBackground.PNG");
                 Image backgroundImage = backgroundIcon.getImage();
 
                 // Scale the image to fit the size of the panel
