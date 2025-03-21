@@ -1,4 +1,3 @@
-package jlistcardlayout;
 import javax.swing.*;
 import java.awt.*;
 

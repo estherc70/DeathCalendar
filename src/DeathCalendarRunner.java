@@ -1,5 +1,3 @@
-import jlistcardlayout.CardLayoutPanel;
-
 public class DeathCalendarRunner {
     public static void main(String[] args) {
 

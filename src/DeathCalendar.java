@@ -1,5 +1,3 @@
-import jlistcardlayout.CardLayoutPanel;
-
 import javax.swing.JFrame;
 public class DeathCalendar {
 
