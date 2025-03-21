@@ -7,6 +7,7 @@ public class CardLayoutPanel extends JFrame {
     private JButton start, back;
     private ImageIcon startButton;
 
+
     public CardLayoutPanel() {
         // Initialize CardLayout
         cardLayout = new CardLayout();
@@ -34,7 +35,8 @@ public class CardLayoutPanel extends JFrame {
 
         // Create buttons
         start = new JButton(startButton);
-        back = new JButton("Back");
+        btnNext = new JButton("Next Panel");
+        btnFirstPanel = new JButton("InfoPage");
 
         // Set layout for the startPage panel (use null layout for manual control)
         startPage.setLayout(null);  // Using null layout to manually control button position
@@ -54,7 +56,7 @@ public class CardLayoutPanel extends JFrame {
 
         // Action listeners for switching panels
         start.addActionListener(e -> cardLayout.show(mainPanel, "Info")); // Switch to Info panel
-        back.addActionListener(e -> cardLayout.show(mainPanel, "Start")); // Switch back to Start panel
+        //back.addActionListener(e -> cardLayout.show(mainPanel, "Start")); // Switch back to Start panel
 
         // Add main panel to frame
         add(mainPanel);
@@ -70,5 +72,6 @@ public class CardLayoutPanel extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // Center the window on the screen
         setVisible(true);
+
     }
 }
