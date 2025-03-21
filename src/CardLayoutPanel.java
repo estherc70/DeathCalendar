@@ -59,6 +59,10 @@ public class CardLayoutPanel extends JFrame {
         // Add main panel to frame
         add(mainPanel);
 
+        start.setOpaque(false);
+        start.setContentAreaFilled(false);
+        start.setBorderPainted(false);
+
         // Frame settings
         setTitle("Card Layout Example");
         setSize(900, 700); // Set the size of the window
