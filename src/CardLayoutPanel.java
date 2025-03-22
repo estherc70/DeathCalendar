@@ -1,10 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CardLayoutPanel extends JFrame {
     private CardLayout cardLayout;
     private JPanel mainPanel;
-    private JButton start, back;
+    private JButton start, back, btnNext, btnFirstPanel;
     private ImageIcon startButton;
 
 
@@ -32,6 +34,9 @@ public class CardLayoutPanel extends JFrame {
         };
 
         JPanel informationPage = new JPanel();
+        JPanel calendar = new JPanel();
+
+        informationPage.setBackground(Color.BLACK);
 
         // Create buttons
         start = new JButton(startButton);
@@ -48,11 +53,49 @@ public class CardLayoutPanel extends JFrame {
         startPage.add(start);
 
         // Add the "Back" button to the informationPage panel
-        informationPage.add(back);
+        //informationPage.add(back);
 
         // Register panels in CardLayout
         mainPanel.add(startPage, "Start");
         mainPanel.add(informationPage, "Info");
+        mainPanel.add(calendar, "Calendar");
+
+        Container pane = getContentPane();
+        pane.add(mainPanel, BorderLayout.CENTER);
+
+        btnNext.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cl = (CardLayout)(mainPanel.getLayout());
+                cl.next(mainPanel);  // Switch to the next card
+            }
+        });
+
+        btnFirstPanel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cl = (CardLayout)(mainPanel.getLayout());
+                cl.show(mainPanel, "Info");  // Show the first panel
+            }
+        });
+
+
+        // Panel for buttons, with layout to place buttons on left and right
+        JPanel btnPanel = new JPanel(new BorderLayout());
+
+
+        // Add the "First Panel" button to the left side of the panel
+        btnPanel.add(btnFirstPanel, BorderLayout.WEST);
+
+
+        // Add the "Next Panel" button to the right side of the panel
+        btnPanel.add(btnNext, BorderLayout.EAST);
+
+
+        // Add button panel to the frame
+        pane.add(btnPanel, BorderLayout.SOUTH);
+
+
 
         // Action listeners for switching panels
         start.addActionListener(e -> cardLayout.show(mainPanel, "Info")); // Switch to Info panel
