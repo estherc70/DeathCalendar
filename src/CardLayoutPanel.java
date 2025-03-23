@@ -6,9 +6,8 @@ import java.awt.event.ActionListener;
 public class CardLayoutPanel extends JFrame {
     private CardLayout cardLayout;
     private JPanel mainPanel;
-    private JButton start, back, btnNext, btnFirstPanel;
+    private JButton start, back, btnNext, btnPrev;
     private ImageIcon startButton;
-
 
     public CardLayoutPanel() {
         // Initialize CardLayout
@@ -32,16 +31,15 @@ public class CardLayoutPanel extends JFrame {
                 g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
             }
         };
-
         JPanel informationPage = new JPanel();
-        JPanel calendar = new JPanel();
-
         informationPage.setBackground(Color.BLACK);
+
+        JPanel calendar = new JPanel();
 
         // Create buttons
         start = new JButton(startButton);
         btnNext = new JButton("Next Panel");
-        btnFirstPanel = new JButton("InfoPage");
+        btnPrev = new JButton("InfoPage");
 
         // Set layout for the startPage panel (use null layout for manual control)
         startPage.setLayout(null);  // Using null layout to manually control button position
@@ -63,42 +61,59 @@ public class CardLayoutPanel extends JFrame {
         Container pane = getContentPane();
         pane.add(mainPanel, BorderLayout.CENTER);
 
+        JPanel btnPanel = new JPanel(new BorderLayout());
+
+        start.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnPanel.add(btnNext, BorderLayout.EAST);
+                pane.add(btnPanel, BorderLayout.SOUTH);
+
+                cardLayout.show(mainPanel, "Info");
+            }
+        });
+
         btnNext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CardLayout cl = (CardLayout)(mainPanel.getLayout());
                 cl.next(mainPanel);  // Switch to the next card
+                btnPanel.add(btnPrev, BorderLayout.WEST);
+                btnPrev.setVisible(true);
+                btnNext.setVisible(false);
             }
         });
 
-        btnFirstPanel.addActionListener(new ActionListener() {
+        btnPrev.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CardLayout cl = (CardLayout)(mainPanel.getLayout());
                 cl.show(mainPanel, "Info");  // Show the first panel
+                btnPrev.setVisible(false);
+                btnNext.setVisible(true);
             }
         });
 
 
         // Panel for buttons, with layout to place buttons on left and right
-        JPanel btnPanel = new JPanel(new BorderLayout());
+//        JPanel btnPanel = new JPanel(new BorderLayout());
 
 
         // Add the "First Panel" button to the left side of the panel
-        btnPanel.add(btnFirstPanel, BorderLayout.WEST);
+//        btnPanel.add(btnPrev, BorderLayout.WEST);
 
 
         // Add the "Next Panel" button to the right side of the panel
-        btnPanel.add(btnNext, BorderLayout.EAST);
+//        btnPanel.add(btnNext, BorderLayout.EAST);
 
 
         // Add button panel to the frame
-        pane.add(btnPanel, BorderLayout.SOUTH);
+//        pane.add(btnPanel, BorderLayout.SOUTH);
 
 
 
         // Action listeners for switching panels
-        start.addActionListener(e -> cardLayout.show(mainPanel, "Info")); // Switch to Info panel
+//        start.addActionListener(e -> cardLayout.show(mainPanel, "Info")); // Switch to Info panel
         //back.addActionListener(e -> cardLayout.show(mainPanel, "Start")); // Switch back to Start panel
 
         // Add main panel to frame
