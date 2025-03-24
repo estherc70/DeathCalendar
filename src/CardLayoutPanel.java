@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class CardLayoutPanel extends JFrame {
     private CardLayout cardLayout;
     private JPanel mainPanel;
-    private JButton start, back, btnNext, btnPrev;
+    private JButton start, btnDisclaimer, btnNext, btnPrev;
     private ImageIcon startButton;
 
     public CardLayoutPanel() {
@@ -46,6 +46,7 @@ public class CardLayoutPanel extends JFrame {
 
         // Create buttons
         start = new JButton(startButton);
+        btnDisclaimer = new JButton(disclaimerImage);
         btnNext = new JButton("Next Panel");
         btnPrev = new JButton("InfoPage");
 
@@ -55,8 +56,13 @@ public class CardLayoutPanel extends JFrame {
         // Set button size (optional to adjust the button size)
         start.setBounds(300, 400, 250, 120);  // Adjust the position and size of the start button
 
+        btnDisclaimer.setBounds(300, 400, 250, 120); // Adjust the position and size of the disclaimer button
+
         // Add the start button to the startPage panel
         startPage.add(start);
+
+        // Add the disclaimer button to the disclaimer panel
+        disclaimer.add(btnDisclaimer);
 
         // Add the "Back" button to the informationPage panel
         //informationPage.add(back);
@@ -83,6 +89,15 @@ public class CardLayoutPanel extends JFrame {
         JPanel btnPanel = new JPanel(new BorderLayout());
 
         start.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//                btnPanel.add(btnNext, BorderLayout.EAST);
+                pane.add(btnPanel, BorderLayout.SOUTH);
+                cardLayout.show(mainPanel, "Disclaimer");
+            }
+        });
+
+        btnDisclaimer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 btnPanel.add(btnNext, BorderLayout.EAST);
@@ -140,6 +155,10 @@ public class CardLayoutPanel extends JFrame {
         start.setOpaque(false);
         start.setContentAreaFilled(false);
         start.setBorderPainted(false);
+
+        btnDisclaimer.setOpaque(true);
+        btnDisclaimer.setContentAreaFilled(true);
+        btnDisclaimer.setBorderPainted(true);
 
         // Frame settings
         setTitle("Card Layout Example");
