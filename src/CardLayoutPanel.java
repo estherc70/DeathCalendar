@@ -36,6 +36,14 @@ public class CardLayoutPanel extends JFrame {
 
         JPanel calendar = new JPanel();
 
+        JPanel goodEnding = new JPanel();
+        ImageIcon good = new ImageIcon("src/GoodEnding.png");
+        JPanel badEnding = new JPanel();
+        ImageIcon bad = new ImageIcon("src/BadEnding.png");
+
+        JPanel disclaimer = new JPanel();
+        ImageIcon disclaimerImage = new ImageIcon("src/Disclaimer.png");
+
         // Create buttons
         start = new JButton(startButton);
         btnNext = new JButton("Next Panel");
@@ -53,10 +61,21 @@ public class CardLayoutPanel extends JFrame {
         // Add the "Back" button to the informationPage panel
         //informationPage.add(back);
 
+        JLabel label1 = new JLabel(good);
+        JLabel label2 = new JLabel(bad);
+        JLabel label3 = new JLabel(disclaimerImage);
+
+        goodEnding.add(label1);
+        badEnding.add(label2);
+        disclaimer.add(label3);
+
         // Register panels in CardLayout
         mainPanel.add(startPage, "Start");
+        mainPanel.add(disclaimer,"Disclaimer");
         mainPanel.add(informationPage, "Info");
         mainPanel.add(calendar, "Calendar");
+        mainPanel.add(goodEnding,"Good Ending");
+        mainPanel.add(badEnding,"Bad Ending");
 
         Container pane = getContentPane();
         pane.add(mainPanel, BorderLayout.CENTER);
@@ -68,8 +87,7 @@ public class CardLayoutPanel extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 btnPanel.add(btnNext, BorderLayout.EAST);
                 pane.add(btnPanel, BorderLayout.SOUTH);
-
-                cardLayout.show(mainPanel, "Info");
+                cardLayout.show(mainPanel, "Disclaimer");
             }
         });
 
@@ -80,7 +98,7 @@ public class CardLayoutPanel extends JFrame {
                 cl.next(mainPanel);  // Switch to the next card
                 btnPanel.add(btnPrev, BorderLayout.WEST);
                 btnPrev.setVisible(true);
-                btnNext.setVisible(false);
+                btnNext.setVisible(true);
             }
         });
 
