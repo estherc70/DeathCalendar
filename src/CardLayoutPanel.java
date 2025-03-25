@@ -57,7 +57,7 @@ public class CardLayoutPanel extends JFrame {
         ImageIcon bad = new ImageIcon("src/BadEnding.png");
 
         JPanel disclaimer = new JPanel();
-        ImageIcon disclaimerImage = new ImageIcon("src/refactor2.0.png");
+        ImageIcon disclaimerImage = new ImageIcon();
 
         // Create buttons
         start = new JButton(startButton);
@@ -175,9 +175,9 @@ public class CardLayoutPanel extends JFrame {
         start.setContentAreaFilled(false);
         start.setBorderPainted(false);
 
-        btnDisclaimer.setOpaque(true);
-        btnDisclaimer.setContentAreaFilled(true);
-        btnDisclaimer.setBorderPainted(true);
+        btnDisclaimer.setOpaque(false);
+        btnDisclaimer.setContentAreaFilled(false);
+        btnDisclaimer.setBorderPainted(false);
 
         // Frame settings
         setTitle("Card Layout Example");
