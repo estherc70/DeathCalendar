@@ -31,6 +31,21 @@ public class CardLayoutPanel extends JFrame {
                 g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
             }
         };
+
+        JPanel disclaimerPage = new JPanel() {
+            // Override paintComponent method to paint the background image
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g); // Ensure the panel is properly rendered
+                // Load the background image
+                ImageIcon backgroundIcon = new ImageIcon("src/Disclaimer.png");
+                Image backgroundImage = backgroundIcon.getImage();
+
+                // Scale the image to fit the size of the panel
+                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+
         JPanel informationPage = new JPanel();
         informationPage.setBackground(Color.BLACK);
 
@@ -42,7 +57,7 @@ public class CardLayoutPanel extends JFrame {
         ImageIcon bad = new ImageIcon("src/BadEnding.png");
 
         JPanel disclaimer = new JPanel();
-        ImageIcon disclaimerImage = new ImageIcon("src/Disclaimer.png");
+        ImageIcon disclaimerImage = new ImageIcon("src/refactor2.0.png");
 
         // Create buttons
         start = new JButton(startButton);
@@ -54,30 +69,34 @@ public class CardLayoutPanel extends JFrame {
         startPage.setLayout(null);  // Using null layout to manually control button position
 
         // Set button size (optional to adjust the button size)
-        start.setBounds(300, 400, 250, 120);  // Adjust the position and size of the start button
+        start.setBounds(300, 400, 250, 120);  //// Adjust the position and size of the start button
 
-        btnDisclaimer.setBounds(300, 400, 250, 120); // Adjust the position and size of the disclaimer button
+        disclaimerPage.setLayout(null);
+
+        btnDisclaimer.setBounds(280, 425, 325, 90); // Adjust the position and size of the disclaimer button
 
         // Add the start button to the startPage panel
         startPage.add(start);
 
+        disclaimerPage.add(btnDisclaimer);
+
         // Add the disclaimer button to the disclaimer panel
-        disclaimer.add(btnDisclaimer);
+        //disclaimer.add(btnDisclaimer);
 
         // Add the "Back" button to the informationPage panel
         //informationPage.add(back);
 
         JLabel label1 = new JLabel(good);
         JLabel label2 = new JLabel(bad);
-        JLabel label3 = new JLabel(disclaimerImage);
+        //JLabel label3 = new JLabel(disclaimerImage);
 
         goodEnding.add(label1);
         badEnding.add(label2);
-        disclaimer.add(label3);
+        //disclaimer.add(label3);
 
         // Register panels in CardLayout
         mainPanel.add(startPage, "Start");
-        mainPanel.add(disclaimer,"Disclaimer");
+        mainPanel.add(disclaimerPage,"Disclaimer");
         mainPanel.add(informationPage, "Info");
         mainPanel.add(calendar, "Calendar");
         mainPanel.add(goodEnding,"Good Ending");
@@ -91,7 +110,7 @@ public class CardLayoutPanel extends JFrame {
         start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                btnPanel.add(btnNext, BorderLayout.EAST);
+                btnPanel.add(btnNext, BorderLayout.EAST);
                 pane.add(btnPanel, BorderLayout.SOUTH);
                 cardLayout.show(mainPanel, "Disclaimer");
             }
@@ -102,7 +121,7 @@ public class CardLayoutPanel extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 btnPanel.add(btnNext, BorderLayout.EAST);
                 pane.add(btnPanel, BorderLayout.SOUTH);
-                cardLayout.show(mainPanel, "Disclaimer");
+                cardLayout.show(mainPanel, "Info");
             }
         });
 
