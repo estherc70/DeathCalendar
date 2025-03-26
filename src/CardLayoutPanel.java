@@ -49,14 +49,30 @@ public class CardLayoutPanel extends JFrame {
         JPanel informationPage = new JPanel();
         informationPage.setBackground(Color.BLACK);
 
-        JPanel calendar = new JPanel();
+        //JPanel calendar = new JPanel();
+        JPanel calendarPage = new JPanel() {
+            // Override paintComponent method to paint the background image
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g); // Ensure the panel is properly rendered
+                // Load the background image
+                ImageIcon backgroundIcon = new ImageIcon("src/Calendar.png");
+                Image backgroundImage = backgroundIcon.getImage();
+
+                // Scale the image to fit the size of the panel
+                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
 
         JPanel goodEnding = new JPanel();
         ImageIcon good = new ImageIcon("src/GoodEnding.png");
         JPanel badEnding = new JPanel();
         ImageIcon bad = new ImageIcon("src/BadEnding.png");
 
-        JPanel disclaimer = new JPanel();
+        JPanel suspectPage = new JPanel();
+        ImageIcon suspect = new ImageIcon("src/Suspects.png");
+
+        //JPanel disclaimer = new JPanel();
         ImageIcon disclaimerImage = new ImageIcon();
 
         // Create buttons
@@ -75,6 +91,8 @@ public class CardLayoutPanel extends JFrame {
 
         btnDisclaimer.setBounds(280, 425, 325, 90); // Adjust the position and size of the disclaimer button
 
+        calendarPage.setLayout(null);
+
         // Add the start button to the startPage panel
         startPage.add(start);
 
@@ -88,17 +106,18 @@ public class CardLayoutPanel extends JFrame {
 
         JLabel label1 = new JLabel(good);
         JLabel label2 = new JLabel(bad);
-        //JLabel label3 = new JLabel(disclaimerImage);
+        JLabel label3 = new JLabel(suspect);
 
         goodEnding.add(label1);
         badEnding.add(label2);
-        //disclaimer.add(label3);
+        suspectPage.add(label3);
 
         // Register panels in CardLayout
         mainPanel.add(startPage, "Start");
         mainPanel.add(disclaimerPage,"Disclaimer");
         mainPanel.add(informationPage, "Info");
-        mainPanel.add(calendar, "Calendar");
+        mainPanel.add(calendarPage, "Calendar");
+        mainPanel.add(suspectPage,"Suspects");
         mainPanel.add(goodEnding,"Good Ending");
         mainPanel.add(badEnding,"Bad Ending");
 
@@ -175,9 +194,9 @@ public class CardLayoutPanel extends JFrame {
         start.setContentAreaFilled(false);
         start.setBorderPainted(false);
 
-        btnDisclaimer.setOpaque(true);
-        btnDisclaimer.setContentAreaFilled(true);
-        btnDisclaimer.setBorderPainted(true);
+        btnDisclaimer.setOpaque(false);
+        btnDisclaimer.setContentAreaFilled(false);
+        btnDisclaimer.setBorderPainted(false);
 
         // Frame settings
         setTitle("Card Layout Example");
