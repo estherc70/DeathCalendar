@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class CardLayoutPanel extends JFrame {
     private CardLayout cardLayout;
     private JPanel mainPanel;
-    private JButton start, btnDisclaimer, btnNext, btnPrev;
+    private JButton start, btnDisclaimer, btnNext, btnPrev, btnSuspects;
     private ImageIcon startButton;
 
     public CardLayoutPanel() {
@@ -64,20 +64,50 @@ public class CardLayoutPanel extends JFrame {
             }
         };
 
+        JPanel suspectPage = new JPanel() {
+            // Override paintComponent method to paint the background image
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g); // Ensure the panel is properly rendered
+                // Load the background image
+                ImageIcon backgroundIcon = new ImageIcon("src/Suspects.png");
+                Image backgroundImage = backgroundIcon.getImage();
+
+                // Scale the image to fit the size of the panel
+                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+
+        JPanel murdererPage = new JPanel() {
+            // Override paintComponent method to paint the background image
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g); // Ensure the panel is properly rendered
+                // Load the background image
+                ImageIcon backgroundIcon = new ImageIcon("src/PickTheMurderer.png");
+                Image backgroundImage = backgroundIcon.getImage();
+
+                // Scale the image to fit the size of the panel
+                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+
         JPanel goodEnding = new JPanel();
         ImageIcon good = new ImageIcon("src/GoodEnding.png");
         JPanel badEnding = new JPanel();
         ImageIcon bad = new ImageIcon("src/BadEnding.png");
 
-        JPanel suspectPage = new JPanel();
-        ImageIcon suspect = new ImageIcon("src/Suspects.png");
+//        JPanel suspectPage = new JPanel();
+//        ImageIcon suspect = new ImageIcon("src/Suspects.png");
 
         //JPanel disclaimer = new JPanel();
         ImageIcon disclaimerImage = new ImageIcon();
+        ImageIcon suspectsImage = new ImageIcon();
 
         // Create buttons
         start = new JButton(startButton);
         btnDisclaimer = new JButton(disclaimerImage);
+        btnSuspects = new JButton(suspectsImage);
         btnNext = new JButton("Next Panel");
         btnPrev = new JButton("InfoPage");
 
@@ -93,10 +123,18 @@ public class CardLayoutPanel extends JFrame {
 
         calendarPage.setLayout(null);
 
+        btnSuspects.setBounds(640, 275, 175, 125);
+
+        suspectPage.setLayout(null);
+
+        murdererPage.setLayout(null);
+
         // Add the start button to the startPage panel
         startPage.add(start);
 
         disclaimerPage.add(btnDisclaimer);
+
+        calendarPage.add(btnSuspects);
 
         // Add the disclaimer button to the disclaimer panel
         //disclaimer.add(btnDisclaimer);
@@ -106,11 +144,11 @@ public class CardLayoutPanel extends JFrame {
 
         JLabel label1 = new JLabel(good);
         JLabel label2 = new JLabel(bad);
-        JLabel label3 = new JLabel(suspect);
+        //JLabel label3 = new JLabel(suspect);
 
         goodEnding.add(label1);
         badEnding.add(label2);
-        suspectPage.add(label3);
+        //suspectPage.add(label3);
 
         // Register panels in CardLayout
         mainPanel.add(startPage, "Start");
@@ -118,6 +156,7 @@ public class CardLayoutPanel extends JFrame {
         mainPanel.add(informationPage, "Info");
         mainPanel.add(calendarPage, "Calendar");
         mainPanel.add(suspectPage,"Suspects");
+        mainPanel.add(murdererPage,"Pick the Murderer");
         mainPanel.add(goodEnding,"Good Ending");
         mainPanel.add(badEnding,"Bad Ending");
 
@@ -141,6 +180,15 @@ public class CardLayoutPanel extends JFrame {
                 btnPanel.add(btnNext, BorderLayout.EAST);
                 pane.add(btnPanel, BorderLayout.SOUTH);
                 cardLayout.show(mainPanel, "Info");
+            }
+        });
+
+        btnSuspects.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnPanel.add(btnNext, BorderLayout.EAST);
+                pane.add(btnPanel, BorderLayout.SOUTH);
+                cardLayout.show(mainPanel, "Suspects");
             }
         });
 
@@ -197,6 +245,10 @@ public class CardLayoutPanel extends JFrame {
         btnDisclaimer.setOpaque(false);
         btnDisclaimer.setContentAreaFilled(false);
         btnDisclaimer.setBorderPainted(false);
+
+        btnSuspects.setOpaque(false);
+        btnSuspects.setContentAreaFilled(false);
+        btnSuspects.setBorderPainted(false);
 
         // Frame settings
         setTitle("Card Layout Example");
