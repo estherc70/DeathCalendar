@@ -107,7 +107,6 @@ public class TESTCardLayoutPanel2 extends JFrame{
         startPage.add(buttonsPanel.getStartButton());
         disclaimerPage.add(buttonsPanel.getBtnDisclaimer());
 
-
         mainPanel.add(startPage, "Start");
         mainPanel.add(disclaimerPage, "Disclaimer");
         mainPanel.add(informationPage, "Info");

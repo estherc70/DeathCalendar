@@ -33,8 +33,9 @@ public class TESTButtonsPanel {
         btnPanel.add(startButton);
         btnPanel.add(btnDisclaimer);
         btnPanel.add(btnSuspects);
+
+        btnNext.setVisible(false);
         btnPanel.add(btnNext);
-        btnPanel.add(infoButton);
 
         addActionListeners(cardLayoutPanel2);
     }
@@ -43,8 +44,6 @@ public class TESTButtonsPanel {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                btnPanel.add(btnNext, BorderLayout.EAST);
-//                pane.add(btnPanel, BorderLayout.SOUTH);
                 cardLayoutPanel2.showCard("Disclaimer");
             }
         });
@@ -52,8 +51,8 @@ public class TESTButtonsPanel {
         btnDisclaimer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                btnNext.setVisible(true);
                 btnPanel.add(btnNext, BorderLayout.EAST);
-//                pane.add(btnPanel, BorderLayout.SOUTH);
                 cardLayoutPanel2.showCard("Info");
             }
         });
