@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class CardLayoutPanel extends JFrame {
     private CardLayout cardLayout;
     private JPanel mainPanel;
-    private JButton start, btnDisclaimer, btnNext, btnPrev, btnSuspects;
+    private JButton start, btnDisclaimer, btnNext, btnPrev, btnSuspects, btnReady, btnGojo;
     private ImageIcon startButton;
 
     public CardLayoutPanel() {
@@ -103,11 +103,15 @@ public class CardLayoutPanel extends JFrame {
         //JPanel disclaimer = new JPanel();
         ImageIcon disclaimerImage = new ImageIcon();
         ImageIcon suspectsImage = new ImageIcon();
+        ImageIcon readyImage = new ImageIcon();
+        ImageIcon gojoImage = new ImageIcon();
 
         // Create buttons
         start = new JButton(startButton);
         btnDisclaimer = new JButton(disclaimerImage);
         btnSuspects = new JButton(suspectsImage);
+        btnReady = new JButton(readyImage);
+        btnGojo = new JButton(gojoImage);
         btnNext = new JButton("Next Panel");
         btnPrev = new JButton("InfoPage");
 
@@ -127,7 +131,11 @@ public class CardLayoutPanel extends JFrame {
 
         suspectPage.setLayout(null);
 
+        btnReady.setBounds(279, 430, 325, 90);
+
         murdererPage.setLayout(null);
+
+        btnGojo.setBounds(300, 400, 250, 120);
 
         // Add the start button to the startPage panel
         startPage.add(start);
@@ -135,6 +143,10 @@ public class CardLayoutPanel extends JFrame {
         disclaimerPage.add(btnDisclaimer);
 
         calendarPage.add(btnSuspects);
+
+        suspectPage.add(btnReady);
+
+        murdererPage.add(btnGojo);
 
         // Add the disclaimer button to the disclaimer panel
         //disclaimer.add(btnDisclaimer);
@@ -189,6 +201,24 @@ public class CardLayoutPanel extends JFrame {
                 btnPanel.add(btnNext, BorderLayout.EAST);
                 pane.add(btnPanel, BorderLayout.SOUTH);
                 cardLayout.show(mainPanel, "Suspects");
+            }
+        });
+
+        btnReady.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnPanel.add(btnNext, BorderLayout.EAST);
+                pane.add(btnPanel, BorderLayout.SOUTH);
+                cardLayout.show(mainPanel, "Pick the Murderer");
+            }
+        });
+
+        btnGojo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnPanel.add(btnNext, BorderLayout.EAST);
+                pane.add(btnPanel, BorderLayout.SOUTH);
+                cardLayout.show(mainPanel, "Good Ending");
             }
         });
 
@@ -249,6 +279,14 @@ public class CardLayoutPanel extends JFrame {
         btnSuspects.setOpaque(false);
         btnSuspects.setContentAreaFilled(false);
         btnSuspects.setBorderPainted(false);
+
+        btnReady.setOpaque(false);
+        btnReady.setContentAreaFilled(false);
+        btnReady.setBorderPainted(false);
+
+        btnGojo.setOpaque(true);
+        btnGojo.setContentAreaFilled(true);
+        btnGojo.setBorderPainted(true);
 
         // Frame settings
         setTitle("Card Layout Example");

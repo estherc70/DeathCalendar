@@ -19,8 +19,6 @@ public class DeathCalendar {
 
         // add it to the frame
 
-
-
         // display the frame (window)
         frame.setVisible(true);
 
