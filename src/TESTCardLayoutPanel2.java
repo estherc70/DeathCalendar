@@ -15,97 +15,29 @@ public class TESTCardLayoutPanel2 extends JFrame{
         // Set up the ButtonPanel
         buttonsPanel = new TESTButtonsPanel(this);
 
-        JPanel startPage = new JPanel() {
-            // Override paintComponent method to paint the background image
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g); // Ensure the panel is properly rendered
-                // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/images/StartBackground.PNG");
-                Image backgroundImage = backgroundIcon.getImage();
-
-                // Scale the image to fit the size of the panel
-                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
-            }
-        };
-
-        // Set layout for the startPage panel (use null layout for manual control)
-        startPage.setLayout(null);  // Using null layout to manually control button position
-
-        JPanel disclaimerPage = new JPanel() {
-            // Override paintComponent method to paint the background image
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g); // Ensure the panel is properly rendered
-                // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/images/Disclaimer.png");
-                Image backgroundImage = backgroundIcon.getImage();
-
-                // Scale the image to fit the size of the panel
-                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
-            }
-        };
-
-        disclaimerPage.setLayout(null);
-
+        JPanel startPage = PanelClass.createPanel("src/images/StartBackground.PNG");
+        JPanel disclaimerPage = PanelClass.createPanel("src/images/Disclaimer.png");
         JPanel informationPage = new JPanel();
         informationPage.setBackground(Color.BLACK);
-
-        JPanel calendarPage = new JPanel() {
-            // Override paintComponent method to paint the background image
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g); // Ensure the panel is properly rendered
-                // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/images/Calendar.png");
-                Image backgroundImage = backgroundIcon.getImage();
-
-                // Scale the image to fit the size of the panel
-                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
-            }
-        };
-
-        calendarPage.setLayout(null);
-
-        JPanel suspectPage = new JPanel() {
-            // Override paintComponent method to paint the background image
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g); // Ensure the panel is properly rendered
-                // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/images/Suspects.png");
-                Image backgroundImage = backgroundIcon.getImage();
-
-                // Scale the image to fit the size of the panel
-                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
-            }
-        };
-
-        suspectPage.setLayout(null);
-
-        JPanel murdererPage = new JPanel() {
-            // Override paintComponent method to paint the background image
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g); // Ensure the panel is properly rendered
-                // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/images/PickTheMurderer.png");
-                Image backgroundImage = backgroundIcon.getImage();
-
-                // Scale the image to fit the size of the panel
-                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
-            }
-        };
-
-        murdererPage.setLayout(null);
-
+        JPanel calendarPage = PanelClass.createPanel("src/images/Calendar.png");
+        JPanel suspectPage = PanelClass.createPanel("src/images/Suspects.png");
+        JPanel murdererPage = PanelClass.createPanel("src/images/PickTheMurderer.png");
         JPanel goodEnding = new JPanel();
         ImageIcon good = new ImageIcon("src/images/GoodEnding.png");
         JPanel badEnding = new JPanel();
         ImageIcon bad = new ImageIcon("src/images/BadEnding.png");
 
+        // Set layout for each panel (use null layout for manual control)
+        startPage.setLayout(null);  // Using null layout to manually control button position
+        disclaimerPage.setLayout(null);
+        calendarPage.setLayout(null);
+        suspectPage.setLayout(null);
+        murdererPage.setLayout(null);
+
+        // Add specific buttons for specific card panels
         startPage.add(buttonsPanel.getStartButton());
         disclaimerPage.add(buttonsPanel.getBtnDisclaimer());
+        suspectPage.add(buttonsPanel.getBtnReady());
 
         mainPanel.add(startPage, "Start");
         mainPanel.add(disclaimerPage, "Disclaimer");
@@ -133,7 +65,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
         return mainPanel;
     }
 
-    // Method to switch to a specified card
+    // Method to switch to a specified card (used in ButtonPanel for ActionListeners)
     public void showCard(String cardName) {
         cardLayout.show(mainPanel, cardName);
     }
