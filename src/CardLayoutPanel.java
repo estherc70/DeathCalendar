@@ -2,11 +2,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class CardLayoutPanel extends JFrame {
     private CardLayout cardLayout;
     private JPanel mainPanel;
     private JButton start, btnDisclaimer, btnNext, btnPrev, btnSuspects, btnReady, btnGojo;
+    private JButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12, btn13, btn14, btn15,
+            btn16, btn17, btn18, btn19, btn20, btn21, btn22, btn23, btn24, btn25, btn26, btn27, btn28;
+    //test for list
+    private JButton[][] calendarButtons;
     private ImageIcon startButton;
 
     public CardLayoutPanel() {
@@ -77,7 +82,6 @@ public class CardLayoutPanel extends JFrame {
                 g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
             }
         };
-
         JPanel murdererPage = new JPanel() {
             // Override paintComponent method to paint the background image
             @Override
@@ -114,6 +118,7 @@ public class CardLayoutPanel extends JFrame {
         btnGojo = new JButton(gojoImage);
         btnNext = new JButton("Next Panel");
         btnPrev = new JButton("InfoPage");
+
 
         // Set layout for the startPage panel (use null layout for manual control)
         startPage.setLayout(null);  // Using null layout to manually control button position
@@ -164,13 +169,13 @@ public class CardLayoutPanel extends JFrame {
 
         // Register panels in CardLayout
         mainPanel.add(startPage, "Start");
-        mainPanel.add(disclaimerPage,"Disclaimer");
+        mainPanel.add(disclaimerPage, "Disclaimer");
         mainPanel.add(informationPage, "Info");
         mainPanel.add(calendarPage, "Calendar");
-        mainPanel.add(suspectPage,"Suspects");
-        mainPanel.add(murdererPage,"Pick the Murderer");
-        mainPanel.add(goodEnding,"Good Ending");
-        mainPanel.add(badEnding,"Bad Ending");
+        mainPanel.add(suspectPage, "Suspects");
+        mainPanel.add(murdererPage, "Pick the Murderer");
+        mainPanel.add(goodEnding, "Good Ending");
+        mainPanel.add(badEnding, "Bad Ending");
 
         Container pane = getContentPane();
         pane.add(mainPanel, BorderLayout.CENTER);
@@ -225,7 +230,7 @@ public class CardLayoutPanel extends JFrame {
         btnNext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CardLayout cl = (CardLayout)(mainPanel.getLayout());
+                CardLayout cl = (CardLayout) (mainPanel.getLayout());
                 cl.next(mainPanel);  // Switch to the next card
                 btnPanel.add(btnPrev, BorderLayout.WEST);
                 btnPrev.setVisible(true);
@@ -236,7 +241,7 @@ public class CardLayoutPanel extends JFrame {
         btnPrev.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CardLayout cl = (CardLayout)(mainPanel.getLayout());
+                CardLayout cl = (CardLayout) (mainPanel.getLayout());
                 cl.show(mainPanel, "Info");  // Show the first panel
                 btnPrev.setVisible(false);
                 btnNext.setVisible(true);
@@ -258,7 +263,6 @@ public class CardLayoutPanel extends JFrame {
 
         // Add button panel to the frame
 //        pane.add(btnPanel, BorderLayout.SOUTH);
-
 
 
         // Action listeners for switching panels
@@ -297,4 +301,5 @@ public class CardLayoutPanel extends JFrame {
         setVisible(true);
 
     }
+
 }
