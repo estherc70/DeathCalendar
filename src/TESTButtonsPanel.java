@@ -8,36 +8,40 @@ public class TESTButtonsPanel {
     private JPanel btnPanel;
 
     public TESTButtonsPanel(TESTCardLayoutPanel2 cardLayoutPanel2) {
-        //button panel
+        // Create button panel
         btnPanel = new JPanel(new BorderLayout());
 
-        //create the buttons
+        // Create the buttons
         startButton = new JButton(new ImageIcon("src/images/refactor2.0.png"));
         btnDisclaimer = new JButton(new ImageIcon());
         btnSuspects = new JButton(new ImageIcon("src/images/Suspects.png"));
         btnNext = new JButton("Next Panel");
         infoButton = new JButton("InfoPage");
+        btnReady = new JButton(new ImageIcon());
+        btnGojo = new JButton(new ImageIcon());
 
+        // Set the opaque
         customizeButton(startButton);
         customizeButton(btnDisclaimer);
         customizeButton(btnSuspects);
-//        customizeButton(btnReady);
+        customizeButton(btnReady);
+//        customizeButton(btnGojo);
 
         // Set button size (optional to adjust the button size)
-        startButton.setBounds(300, 400, 250, 120);  //// Adjust the position and size of the start button
+        startButton.setBounds(300, 400, 250, 120);  // Adjust the position and size of the start button
         btnDisclaimer.setBounds(280, 425, 325, 90); // Adjust the position and size of the disclaimer button
         btnSuspects.setBounds(640, 275, 175, 125);
-//        btnReady.setBounds(279, 430, 325, 90);
+        btnReady.setBounds(279, 430, 325, 90);
 //        btnGojo.setBounds(300, 400, 250, 120);
 
         btnPanel.add(startButton);
         btnPanel.add(btnDisclaimer);
         btnPanel.add(btnSuspects);
-
         btnNext.setVisible(false);
         btnPanel.add(btnNext);
 
         addActionListeners(cardLayoutPanel2);
+
     }
 
     private void addActionListeners(final TESTCardLayoutPanel2 cardLayoutPanel2) {
@@ -86,21 +90,21 @@ public class TESTButtonsPanel {
             }
         });
 
-//        btnReady.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                btnPanel.add(btnNext, BorderLayout.EAST);
-//                cardLayoutPanel2.showCard("Pick the Murderer");
-//            }
-//        });
-//
-//        btnGojo.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                btnPanel.add(btnNext, BorderLayout.EAST);
-//                cardLayoutPanel2.showCard("Good Ending");
-//            }
-//        });
+        btnReady.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnPanel.add(btnNext, BorderLayout.EAST);
+                cardLayoutPanel2.showCard("Pick the Murderer");
+            }
+        });
+
+        btnGojo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnPanel.add(btnNext, BorderLayout.EAST);
+                cardLayoutPanel2.showCard("Good Ending");
+            }
+        });
 
     }
 
@@ -121,6 +125,18 @@ public class TESTButtonsPanel {
 
     public JButton getBtnDisclaimer() {
         return btnDisclaimer;
+    }
+
+    public JButton getBtnReady() {
+        return btnReady;
+    }
+
+    public JButton getBtnSuspects() {
+        return btnSuspects;
+    }
+
+    public JButton getBtnGojo() {
+        return btnGojo;
     }
 }
 
