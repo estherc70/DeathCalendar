@@ -12,9 +12,9 @@ public class TESTButtonsPanel {
         btnPanel = new JPanel(new BorderLayout());
 
         //create the buttons
-        startButton = new JButton(new ImageIcon("src/refactor2.0.png"));
+        startButton = new JButton(new ImageIcon("src/images/refactor2.0.png"));
         btnDisclaimer = new JButton(new ImageIcon());
-        btnSuspects = new JButton(new ImageIcon("src/Suspects.png"));
+        btnSuspects = new JButton(new ImageIcon("src/images/Suspects.png"));
         btnNext = new JButton("Next Panel");
         infoButton = new JButton("InfoPage");
 

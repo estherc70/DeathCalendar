@@ -15,7 +15,7 @@ public class CardLayoutPanel extends JFrame {
         mainPanel = new JPanel(cardLayout); // Apply CardLayout to main panel
 
         // Initialize images
-        startButton = new ImageIcon("src/refactor2.0.png");
+        startButton = new ImageIcon("src/images/refactor2.0.png");
 
         // Create panels
         JPanel startPage = new JPanel() {
@@ -24,7 +24,7 @@ public class CardLayoutPanel extends JFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g); // Ensure the panel is properly rendered
                 // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/StartBackground.PNG");
+                ImageIcon backgroundIcon = new ImageIcon("src/images/StartBackground.PNG");
                 Image backgroundImage = backgroundIcon.getImage();
 
                 // Scale the image to fit the size of the panel
@@ -38,7 +38,7 @@ public class CardLayoutPanel extends JFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g); // Ensure the panel is properly rendered
                 // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/Disclaimer.png");
+                ImageIcon backgroundIcon = new ImageIcon("src/images/Disclaimer.png");
                 Image backgroundImage = backgroundIcon.getImage();
 
                 // Scale the image to fit the size of the panel
@@ -56,7 +56,7 @@ public class CardLayoutPanel extends JFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g); // Ensure the panel is properly rendered
                 // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/Calendar.png");
+                ImageIcon backgroundIcon = new ImageIcon("src/images/Calendar.png");
                 Image backgroundImage = backgroundIcon.getImage();
 
                 // Scale the image to fit the size of the panel
@@ -70,7 +70,7 @@ public class CardLayoutPanel extends JFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g); // Ensure the panel is properly rendered
                 // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/Suspects.png");
+                ImageIcon backgroundIcon = new ImageIcon("src/images/Suspects.png");
                 Image backgroundImage = backgroundIcon.getImage();
 
                 // Scale the image to fit the size of the panel
@@ -84,7 +84,7 @@ public class CardLayoutPanel extends JFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g); // Ensure the panel is properly rendered
                 // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/PickTheMurderer.png");
+                ImageIcon backgroundIcon = new ImageIcon("src/images/PickTheMurderer.png");
                 Image backgroundImage = backgroundIcon.getImage();
 
                 // Scale the image to fit the size of the panel
@@ -93,12 +93,12 @@ public class CardLayoutPanel extends JFrame {
         };
 
         JPanel goodEnding = new JPanel();
-        ImageIcon good = new ImageIcon("src/GoodEnding.png");
+        ImageIcon good = new ImageIcon("src/images/GoodEnding.png");
         JPanel badEnding = new JPanel();
-        ImageIcon bad = new ImageIcon("src/BadEnding.png");
+        ImageIcon bad = new ImageIcon("src/images/BadEnding.png");
 
 //        JPanel suspectPage = new JPanel();
-//        ImageIcon suspect = new ImageIcon("src/Suspects.png");
+//        ImageIcon suspect = new ImageIcon("src/images/Suspects.png");
 
         //JPanel disclaimer = new JPanel();
         ImageIcon disclaimerImage = new ImageIcon();

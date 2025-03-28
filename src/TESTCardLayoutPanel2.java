@@ -21,7 +21,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g); // Ensure the panel is properly rendered
                 // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/StartBackground.PNG");
+                ImageIcon backgroundIcon = new ImageIcon("src/images/StartBackground.PNG");
                 Image backgroundImage = backgroundIcon.getImage();
 
                 // Scale the image to fit the size of the panel
@@ -38,7 +38,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g); // Ensure the panel is properly rendered
                 // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/Disclaimer.png");
+                ImageIcon backgroundIcon = new ImageIcon("src/images/Disclaimer.png");
                 Image backgroundImage = backgroundIcon.getImage();
 
                 // Scale the image to fit the size of the panel
@@ -57,7 +57,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g); // Ensure the panel is properly rendered
                 // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/Calendar.png");
+                ImageIcon backgroundIcon = new ImageIcon("src/images/Calendar.png");
                 Image backgroundImage = backgroundIcon.getImage();
 
                 // Scale the image to fit the size of the panel
@@ -73,7 +73,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g); // Ensure the panel is properly rendered
                 // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/Suspects.png");
+                ImageIcon backgroundIcon = new ImageIcon("src/images/Suspects.png");
                 Image backgroundImage = backgroundIcon.getImage();
 
                 // Scale the image to fit the size of the panel
@@ -89,7 +89,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g); // Ensure the panel is properly rendered
                 // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/PickTheMurderer.png");
+                ImageIcon backgroundIcon = new ImageIcon("src/images/PickTheMurderer.png");
                 Image backgroundImage = backgroundIcon.getImage();
 
                 // Scale the image to fit the size of the panel
@@ -100,9 +100,9 @@ public class TESTCardLayoutPanel2 extends JFrame{
         murdererPage.setLayout(null);
 
         JPanel goodEnding = new JPanel();
-        ImageIcon good = new ImageIcon("src/GoodEnding.png");
+        ImageIcon good = new ImageIcon("src/images/GoodEnding.png");
         JPanel badEnding = new JPanel();
-        ImageIcon bad = new ImageIcon("src/BadEnding.png");
+        ImageIcon bad = new ImageIcon("src/images/BadEnding.png");
 
         startPage.add(buttonsPanel.getStartButton());
         disclaimerPage.add(buttonsPanel.getBtnDisclaimer());
