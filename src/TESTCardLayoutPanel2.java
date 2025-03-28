@@ -15,13 +15,13 @@ public class TESTCardLayoutPanel2 extends JFrame{
         // Set up the ButtonPanel
         buttonsPanel = new TESTButtonsPanel(this);
 
-        JPanel startPage = PanelClass.createPanel("src/images/StartBackground.PNG");
-        JPanel disclaimerPage = PanelClass.createPanel("src/images/Disclaimer.png");
+        JPanel startPage = TESTPanelClass.createPanel("src/images/StartBackground.PNG");
+        JPanel disclaimerPage = TESTPanelClass.createPanel("src/images/Disclaimer.png");
         JPanel informationPage = new JPanel();
         informationPage.setBackground(Color.BLACK);
-        JPanel calendarPage = PanelClass.createPanel("src/images/Calendar.png");
-        JPanel suspectPage = PanelClass.createPanel("src/images/Suspects.png");
-        JPanel murdererPage = PanelClass.createPanel("src/images/PickTheMurderer.png");
+        JPanel calendarPage = TESTPanelClass.createPanel("src/images/Calendar.png");
+        JPanel suspectPage = TESTPanelClass.createPanel("src/images/Suspects.png");
+        JPanel murdererPage = TESTPanelClass.createPanel("src/images/PickTheMurderer.png");
         JPanel goodEnding = new JPanel();
         ImageIcon good = new ImageIcon("src/images/GoodEnding.png");
         JPanel badEnding = new JPanel();

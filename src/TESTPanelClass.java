@@ -1,12 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class PanelClass extends JPanel {
+public class TESTPanelClass extends JPanel {
 
     private String fileName;
 
     // Constructor to accept the image file name
-    public PanelClass(String fileName) {
+    public TESTPanelClass(String fileName) {
         this.fileName = fileName;
     }
 
@@ -22,6 +22,6 @@ public class PanelClass extends JPanel {
     }
 
     public static JPanel createPanel(String fileName) {
-        return new PanelClass(fileName);
+        return new TESTPanelClass(fileName);
     }
 }

@@ -19,6 +19,7 @@ public class Calendar {
        btn4 = new JButton(image);
        btn5 = new JButton(image);
        btn6 = new JButton(image);
+       btn7 = new JButton(image);
        btn8 = new JButton(image);
        btn9 = new JButton(image);
        btn10 = new JButton(image);
