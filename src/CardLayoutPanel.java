@@ -5,13 +5,14 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class CardLayoutPanel extends JFrame {
+    Calendar calendarPanel = new Calendar();
     private CardLayout cardLayout;
     private JPanel mainPanel;
     private JButton start, btnDisclaimer, btnNext, btnPrev, btnSuspects, btnReady, btnGojo;
-    private JButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12, btn13, btn14, btn15,
-            btn16, btn17, btn18, btn19, btn20, btn21, btn22, btn23, btn24, btn25, btn26, btn27, btn28;
-    //test for list
-    private JButton[][] calendarButtons;
+//    private JButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12, btn13, btn14, btn15,
+//            btn16, btn17, btn18, btn19, btn20, btn21, btn22, btn23, btn24, btn25, btn26, btn27, btn28;
+//    //test for list
+//    private JButton[][] calendarButtons;
     private ImageIcon startButton;
 
     public CardLayoutPanel() {
@@ -54,20 +55,20 @@ public class CardLayoutPanel extends JFrame {
         JPanel informationPage = new JPanel();
         informationPage.setBackground(Color.BLACK);
 
-        //JPanel calendar = new JPanel();
-        JPanel calendarPage = new JPanel() {
-            // Override paintComponent method to paint the background image
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g); // Ensure the panel is properly rendered
-                // Load the background image
-                ImageIcon backgroundIcon = new ImageIcon("src/images/Calendar.png");
-                Image backgroundImage = backgroundIcon.getImage();
-
-                // Scale the image to fit the size of the panel
-                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
-            }
-        };
+//        //JPanel calendar = new JPanel();
+//        JPanel calendarPage = new JPanel() {
+//            // Override paintComponent method to paint the background image
+//            @Override
+//            protected void paintComponent(Graphics g) {
+//                super.paintComponent(g); // Ensure the panel is properly rendered
+//                // Load the background image
+//                ImageIcon backgroundIcon = new ImageIcon("src/images/Calendar.png");
+//                Image backgroundImage = backgroundIcon.getImage();
+//
+//                // Scale the image to fit the size of the panel
+//                g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+//            }
+//        };
 
         JPanel suspectPage = new JPanel() {
             // Override paintComponent method to paint the background image
@@ -130,7 +131,7 @@ public class CardLayoutPanel extends JFrame {
 
         btnDisclaimer.setBounds(280, 425, 325, 90); // Adjust the position and size of the disclaimer button
 
-        calendarPage.setLayout(null);
+        calendarPanel.getCalendarPage().setLayout(null);
 
         btnSuspects.setBounds(640, 275, 175, 125);
 
@@ -147,7 +148,7 @@ public class CardLayoutPanel extends JFrame {
 
         disclaimerPage.add(btnDisclaimer);
 
-        calendarPage.add(btnSuspects);
+        calendarPanel.calendarPage.add(btnSuspects);
 
         suspectPage.add(btnReady);
 
@@ -171,7 +172,7 @@ public class CardLayoutPanel extends JFrame {
         mainPanel.add(startPage, "Start");
         mainPanel.add(disclaimerPage, "Disclaimer");
         mainPanel.add(informationPage, "Info");
-        mainPanel.add(calendarPage, "Calendar");
+        mainPanel.add(calendarPanel.calendarPage, "Calendar");
         mainPanel.add(suspectPage, "Suspects");
         mainPanel.add(murdererPage, "Pick the Murderer");
         mainPanel.add(goodEnding, "Good Ending");
@@ -181,6 +182,8 @@ public class CardLayoutPanel extends JFrame {
         pane.add(mainPanel, BorderLayout.CENTER);
 
         JPanel btnPanel = new JPanel(new BorderLayout());
+
+
 
         start.addActionListener(new ActionListener() {
             @Override
