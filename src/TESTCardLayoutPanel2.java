@@ -2,15 +2,18 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class CardLayoutPanel2 extends JFrame{
+public class TESTCardLayoutPanel2 extends JFrame{
     private JPanel mainPanel;
-    private ButtonsPanel buttonsPanel;
+    private TESTButtonsPanel buttonsPanel;
     private CardLayout cardLayout;
 
-    public CardLayoutPanel2() {
+    public TESTCardLayoutPanel2() {
         // Initialize CardLayout
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
+
+        // Set up the ButtonPanel
+        buttonsPanel = new TESTButtonsPanel(this);
 
         JPanel startPage = new JPanel() {
             // Override paintComponent method to paint the background image
@@ -101,6 +104,10 @@ public class CardLayoutPanel2 extends JFrame{
         JPanel badEnding = new JPanel();
         ImageIcon bad = new ImageIcon("src/BadEnding.png");
 
+        startPage.add(buttonsPanel.getStartButton());
+        disclaimerPage.add(buttonsPanel.getBtnDisclaimer());
+
+
         mainPanel.add(startPage, "Start");
         mainPanel.add(disclaimerPage, "Disclaimer");
         mainPanel.add(informationPage, "Info");
@@ -110,15 +117,12 @@ public class CardLayoutPanel2 extends JFrame{
         mainPanel.add(goodEnding, "Good Ending");
         mainPanel.add(badEnding, "Bad Ending");
 
-        // Set up the ButtonPanel
-        buttonsPanel = new ButtonsPanel(this);
-
         Container pane = getContentPane();
         pane.add(mainPanel, BorderLayout.CENTER);
         pane.add(buttonsPanel.getBtnPanel(), BorderLayout.SOUTH);
 
         // Frame settings
-        setTitle("Card Layout Example");
+        setTitle("CardLayoutOrganized");
         setSize(900, 700); // Set the size of the window
         setResizable(false); // Disable resizing the window
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -137,6 +141,6 @@ public class CardLayoutPanel2 extends JFrame{
 
     public static void main(String[] args) {
         // Create and display the main frame
-        new CardLayoutPanel();
+        new TESTCardLayoutPanel2();
     }
 }

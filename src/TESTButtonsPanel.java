@@ -3,17 +3,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ButtonsPanel {
-    private JButton startButton, btnDisclaimer, btnNext, infoButton, btnSuspects;
+public class TESTButtonsPanel {
+    private JButton startButton, btnDisclaimer, btnNext, infoButton, btnSuspects, btnReady, btnGojo;
     private JPanel btnPanel;
 
-    public ButtonsPanel(CardLayoutPanel2 cardLayoutPanel2) {
+    public TESTButtonsPanel(TESTCardLayoutPanel2 cardLayoutPanel2) {
         //button panel
         btnPanel = new JPanel(new BorderLayout());
 
         //create the buttons
         startButton = new JButton(new ImageIcon("src/refactor2.0.png"));
-        btnDisclaimer = new JButton(new ImageIcon("src/Disclaimer.png"));
+        btnDisclaimer = new JButton(new ImageIcon());
         btnSuspects = new JButton(new ImageIcon("src/Suspects.png"));
         btnNext = new JButton("Next Panel");
         infoButton = new JButton("InfoPage");
@@ -22,6 +22,13 @@ public class ButtonsPanel {
         customizeButton(btnDisclaimer);
         customizeButton(btnSuspects);
 //        customizeButton(btnReady);
+
+        // Set button size (optional to adjust the button size)
+        startButton.setBounds(300, 400, 250, 120);  //// Adjust the position and size of the start button
+        btnDisclaimer.setBounds(280, 425, 325, 90); // Adjust the position and size of the disclaimer button
+        btnSuspects.setBounds(640, 275, 175, 125);
+//        btnReady.setBounds(279, 430, 325, 90);
+//        btnGojo.setBounds(300, 400, 250, 120);
 
         btnPanel.add(startButton);
         btnPanel.add(btnDisclaimer);
@@ -32,7 +39,7 @@ public class ButtonsPanel {
         addActionListeners(cardLayoutPanel2);
     }
 
-    private void addActionListeners(final CardLayoutPanel2 cardLayoutPanel2) {
+    private void addActionListeners(final TESTCardLayoutPanel2 cardLayoutPanel2) {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,7 +62,6 @@ public class ButtonsPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 btnPanel.add(btnNext, BorderLayout.EAST);
-//                pane.add(btnPanel, BorderLayout.SOUTH);
                 cardLayoutPanel2.showCard("Suspects");
             }
         });
@@ -63,8 +69,8 @@ public class ButtonsPanel {
         btnNext.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CardLayout cl = (CardLayout) (btnPanel.getLayout());
-                cl.next(btnPanel);  // Switch to the next card
+                CardLayout cl = (CardLayout) (cardLayoutPanel2.getMainPanel().getLayout());
+                cl.next(cardLayoutPanel2.getMainPanel());  // Switch to the next card
                 btnPanel.add(infoButton, BorderLayout.WEST);
                 infoButton.setVisible(true);
                 btnNext.setVisible(true);
@@ -74,16 +80,29 @@ public class ButtonsPanel {
         infoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cardLayoutPanel2.showCard("Info");
+                CardLayout cl = (CardLayout)(cardLayoutPanel2.getMainPanel().getLayout());
+                cl.show(cardLayoutPanel2.getMainPanel(), "Info");  // Show the first panel
                 infoButton.setVisible(false);
                 btnNext.setVisible(true);
             }
         });
-    }
 
-    // Method to create and return a panel that holds the buttons
-    public JPanel getBtnPanel() {
-        return btnPanel;
+//        btnReady.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                btnPanel.add(btnNext, BorderLayout.EAST);
+//                cardLayoutPanel2.showCard("Pick the Murderer");
+//            }
+//        });
+//
+//        btnGojo.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                btnPanel.add(btnNext, BorderLayout.EAST);
+//                cardLayoutPanel2.showCard("Good Ending");
+//            }
+//        });
+
     }
 
     private void customizeButton(JButton button) {
@@ -91,4 +110,18 @@ public class ButtonsPanel {
         button.setContentAreaFilled(false);
         button.setBorderPainted(false);
     }
+
+    // Method to create and return a panel that holds the buttons
+    public JPanel getBtnPanel() {
+        return btnPanel;
+    }
+
+    public JButton getStartButton() {
+        return startButton;
+    }
+
+    public JButton getBtnDisclaimer() {
+        return btnDisclaimer;
+    }
 }
+
