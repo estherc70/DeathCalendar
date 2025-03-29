@@ -16,7 +16,7 @@ public class TESTButtonsPanel {
         // Create the buttons
         startButton = new JButton(new ImageIcon("src/images/refactor2.0.png"));
         btnDisclaimer = new JButton();
-        btnSuspects = new JButton(new ImageIcon("src/images/Suspects.png"));
+        btnSuspects = new JButton();
         btnReady = new JButton();
         btnGojo = new JButton();
         btnJoGo = new JButton();
