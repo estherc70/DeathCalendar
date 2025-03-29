@@ -9,7 +9,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
 
     public TESTCardLayoutPanel2() {
         // Initialize CardLayout
-        Calendar calendarPanel = new Calendar();
+        Calendar calendarPanel = new Calendar(this);
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
 

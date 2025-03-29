@@ -4,73 +4,43 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class Calendar {
+public class Calendar extends JButton {
     ImageIcon image = new ImageIcon();
-    private JButton btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12, btn13, btn14, btn15,
-            btn16, btn17, btn18, btn19, btn20, btn21, btn22, btn23, btn24, btn25, btn26, btn27, btn28;
-    //test for list
     private JButton[][] calendarButtons;
+    private TESTButtonsPanel testButtonsPanel;
+    private JButton[] allDays; //buttons for days 1-28
 
-    public Calendar() {
+    public Calendar(TESTCardLayoutPanel2 cardLayoutPanel2) {
+        testButtonsPanel = new TESTButtonsPanel(cardLayoutPanel2);
+        allDays = new JButton[28];
         calendarButtons = new JButton[5][7];
-       btn1 = new JButton(image);
-       btn2 = new JButton(image);
-       btn3 = new JButton(image);
-       btn4 = new JButton(image);
-       btn5 = new JButton(image);
-       btn6 = new JButton(image);
-       btn7 = new JButton(image);
-       btn8 = new JButton(image);
-       btn9 = new JButton(image);
-       btn10 = new JButton(image);
-       btn11 = new JButton(image);
-       btn12 = new JButton(image);
-       btn13 = new JButton(image);
-       btn14 = new JButton(image);
-       btn15 = new JButton(image);
-       btn16 = new JButton(image);
-       btn17 = new JButton(image);
-       btn18 = new JButton(image);
-       btn19 = new JButton(image);
-       btn20 = new JButton(image);
-       btn21 = new JButton(image);
-       btn22 = new JButton(image);
-       btn23 = new JButton(image);
-       btn24 = new JButton(image);
-       btn25 = new JButton(image);
-       btn26 = new JButton(image);
-       btn27 = new JButton(image);
-       btn28 = new JButton(image);
 
-       calendarButtons[0][6] = btn1;
-       calendarButtons[1][0] = btn2;
-       calendarButtons[1][1] = btn3;
-       calendarButtons[1][2] = btn4;
-       calendarButtons[1][3] = btn5;
-       calendarButtons[1][4] = btn6;
-       calendarButtons[1][5] = btn7;
-       calendarButtons[1][6] = btn8;
-       calendarButtons[2][0] = btn9;
-       calendarButtons[2][1] = btn10;
-       calendarButtons[2][2] = btn11;
-       calendarButtons[2][3] = btn12;
-       calendarButtons[2][4] = btn13;
-       calendarButtons[2][5] = btn14;
-       calendarButtons[2][6] = btn15;
-       calendarButtons[3][0] = btn16;
-       calendarButtons[3][1] = btn17;
-       calendarButtons[3][2] = btn18;
-       calendarButtons[3][3] = btn19;
-       calendarButtons[3][4] = btn20;
-       calendarButtons[3][5] = btn21;
-       calendarButtons[3][6] = btn22;
-       calendarButtons[4][0] = btn23;
-       calendarButtons[4][1] = btn24;
-       calendarButtons[4][2] = btn25;
-       calendarButtons[4][3] = btn26;
-       calendarButtons[4][4] = btn27;
-       calendarButtons[4][5] = btn28;
+        // create buttons
+        for (int i = 0; i < allDays.length; i++) {
+            allDays[i] = new JButton(image);
 
+            int dayNumber = i + 1;
+            allDays[i].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    openNewWindow(dayNumber);
+                }
+            });
+        }
+
+        // initialize the buttons in calendarButtons
+        int index = 1;
+        calendarButtons[0][6] = allDays[0];
+        for (int r = 1; r < calendarButtons.length; r++) {
+            for (int c = 0; c < calendarButtons[1].length; c++) {
+                if (index < allDays.length) {
+                    calendarButtons[r][c] = allDays[index];
+                    index++;
+                }
+            }
+        }
+
+        // add buttons onto the calenderPanel
        addButtons();
 
     }
@@ -93,10 +63,6 @@ public class Calendar {
             g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
         }
     };
-
-    public JPanel getCalendarPage() {
-        return calendarPage;
-    }
 
     public void addButtons() {
         int counter = 502;
@@ -123,5 +89,26 @@ public class Calendar {
             }
             counter = 23;
         }
+    }
+
+
+    // Method to open a new window
+    private static void openNewWindow(int calenderDay) {
+        // Create the new window (JFrame)
+        JFrame newWindow = new JFrame("Day " + calenderDay);
+        newWindow.setSize(500, 700);  // Set the size of the new window
+        newWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close when clicked on X
+        newWindow.setLocationRelativeTo(null);  // Center the window on screen
+
+        // Add some content to the new window
+        JLabel label = new JLabel("This day " + calenderDay + " of her diary");
+        newWindow.add(label);
+
+        // Make the new window visible
+        newWindow.setVisible(true);
+    }
+
+    public JPanel getCalendarPage() {
+        return calendarPage;
     }
 }

@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class CardLayoutPanel extends JFrame {
-    Calendar calendarPanel = new Calendar();
+//    Calendar calendarPanel = new Calendar();
     private CardLayout cardLayout;
     private JPanel mainPanel;
     private JButton start, btnDisclaimer, btnNext, btnPrev, btnSuspects, btnReady, btnGojo;
@@ -131,7 +131,7 @@ public class CardLayoutPanel extends JFrame {
 
         btnDisclaimer.setBounds(280, 425, 325, 90); // Adjust the position and size of the disclaimer button
 
-        calendarPanel.getCalendarPage().setLayout(null);
+//        calendarPanel.getCalendarPage().setLayout(null);
 
         btnSuspects.setBounds(640, 275, 175, 125);
 
@@ -148,7 +148,7 @@ public class CardLayoutPanel extends JFrame {
 
         disclaimerPage.add(btnDisclaimer);
 
-        calendarPanel.calendarPage.add(btnSuspects);
+//        calendarPanel.calendarPage.add(btnSuspects);
 
         suspectPage.add(btnReady);
 
@@ -172,7 +172,7 @@ public class CardLayoutPanel extends JFrame {
         mainPanel.add(startPage, "Start");
         mainPanel.add(disclaimerPage, "Disclaimer");
         mainPanel.add(informationPage, "Info");
-        mainPanel.add(calendarPanel.calendarPage, "Calendar");
+//        mainPanel.add(calendarPanel.calendarPage, "Calendar");
         mainPanel.add(suspectPage, "Suspects");
         mainPanel.add(murdererPage, "Pick the Murderer");
         mainPanel.add(goodEnding, "Good Ending");
