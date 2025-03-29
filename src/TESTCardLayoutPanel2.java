@@ -43,6 +43,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
         disclaimerPage.add(buttonsPanel.getBtnDisclaimer());
         calendarPanel.calendarPage.add(buttonsPanel.getBtnSuspects());
         suspectPage.add(buttonsPanel.getBtnReady());
+        murdererPage.add(buttonsPanel.getBtnGojo());
 
         murdererPage.add(buttonsPanel.getBtnGojo());
         murdererPage.add(buttonsPanel.getBtnJoGo());
