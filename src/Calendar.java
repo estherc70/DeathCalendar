@@ -99,15 +99,29 @@ public class Calendar {
     }
 
     public void addButtons() {
-        int counter = 50;
+        int counter = 502;
+        int y = 200;
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 7; j++) {
                 if (calendarButtons[i][j] != null) {
                     calendarPage.add(calendarButtons[i][j]);
-                    calendarButtons[i][j].setBounds(counter, counter, 30, 50);
+                    calendarButtons[i][j].setBounds(counter, y, 65, 65);
+                    counter += 80;
                 }
             }
-            counter += 5;
+            if (i == 0) {
+                y += 80;
+            }
+            else if (i == 1) {
+                y += 75;
+            }
+            else if (i == 3){
+                y += 65;
+            }
+            else {
+                y += 60;
+            }
+            counter = 23;
         }
     }
 }
