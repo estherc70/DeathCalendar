@@ -9,6 +9,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
 
     public TESTCardLayoutPanel2() {
         // Initialize CardLayout
+        Calendar calendarPanel = new Calendar();
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
 
@@ -19,34 +20,45 @@ public class TESTCardLayoutPanel2 extends JFrame{
         JPanel disclaimerPage = TESTPanelClass.createPanel("src/images/Disclaimer.png");
         JPanel informationPage = new JPanel();
         informationPage.setBackground(Color.BLACK);
-        JPanel calendarPage = TESTPanelClass.createPanel("src/images/Calendar.png");
+        //JPanel calendarPage = TESTPanelClass.createPanel("src/images/Calendar.png");
         JPanel suspectPage = TESTPanelClass.createPanel("src/images/Suspects.png");
         JPanel murdererPage = TESTPanelClass.createPanel("src/images/PickTheMurderer.png");
-        JPanel goodEnding = new JPanel();
-        ImageIcon good = new ImageIcon("src/images/GoodEnding.png");
-        JPanel badEnding = new JPanel();
-        ImageIcon bad = new ImageIcon("src/images/BadEnding.png");
+        JPanel goodEndingPage = TESTPanelClass.createPanel("src/images/GoodEnding.png");
+        JPanel objectionPage = TESTPanelClass.createPanel("src/images/Objection.png");
+        JPanel badEndingPage = TESTPanelClass.createPanel("src/images/BadEnding.png");
+//        JPanel goodEnding = new JPanel();
+//        ImageIcon good = new ImageIcon("src/images/GoodEnding.png");
+//        JPanel badEnding = new JPanel();
+//        ImageIcon bad = new ImageIcon("src/images/BadEnding.png");
 
         // Set layout for each panel (use null layout for manual control)
         startPage.setLayout(null);  // Using null layout to manually control button position
         disclaimerPage.setLayout(null);
-        calendarPage.setLayout(null);
+        calendarPanel.getCalendarPage().setLayout(null);
         suspectPage.setLayout(null);
         murdererPage.setLayout(null);
 
         // Add specific buttons for specific card panels
         startPage.add(buttonsPanel.getStartButton());
         disclaimerPage.add(buttonsPanel.getBtnDisclaimer());
+        calendarPanel.calendarPage.add(buttonsPanel.getBtnSuspects());
         suspectPage.add(buttonsPanel.getBtnReady());
+
+        murdererPage.add(buttonsPanel.getBtnGojo());
+        murdererPage.add(buttonsPanel.getBtnJoGo());
+        murdererPage.add(buttonsPanel.getBtnGogo());
+        murdererPage.add(buttonsPanel.getBtnNikki());
+
 
         mainPanel.add(startPage, "Start");
         mainPanel.add(disclaimerPage, "Disclaimer");
         mainPanel.add(informationPage, "Info");
-        mainPanel.add(calendarPage, "Calendar");
+        mainPanel.add(calendarPanel.calendarPage, "Calendar");
         mainPanel.add(suspectPage, "Suspects");
         mainPanel.add(murdererPage, "Pick the Murderer");
-        mainPanel.add(goodEnding, "Good Ending");
-        mainPanel.add(badEnding, "Bad Ending");
+        mainPanel.add(goodEndingPage, "Good Ending");
+        mainPanel.add(objectionPage,"Objection");
+        mainPanel.add(badEndingPage, "Bad Ending");
 
         Container pane = getContentPane();
         pane.add(mainPanel, BorderLayout.CENTER);

@@ -279,9 +279,9 @@ public class CardLayoutPanel extends JFrame {
         start.setContentAreaFilled(false);
         start.setBorderPainted(false);
 
-        btnDisclaimer.setOpaque(false);
-        btnDisclaimer.setContentAreaFilled(false);
-        btnDisclaimer.setBorderPainted(false);
+        btnDisclaimer.setOpaque(true);
+        btnDisclaimer.setContentAreaFilled(true);
+        btnDisclaimer.setBorderPainted(true);
 
         btnSuspects.setOpaque(false);
         btnSuspects.setContentAreaFilled(false);
