@@ -15,13 +15,13 @@ public class TESTButtonsPanel {
 
         // Create the buttons
         startButton = new JButton(new ImageIcon("src/images/refactor2.0.png"));
-        btnDisclaimer = new JButton(new ImageIcon());
+        btnDisclaimer = new JButton();
         btnSuspects = new JButton(new ImageIcon("src/images/Suspects.png"));
-        btnReady = new JButton(new ImageIcon());
-        btnGojo = new JButton(new ImageIcon());
-        btnJoGo = new JButton(new ImageIcon());
-        btnGogo = new JButton(new ImageIcon());
-        btnNikki = new JButton(new ImageIcon());
+        btnReady = new JButton();
+        btnGojo = new JButton();
+        btnJoGo = new JButton();
+        btnGogo = new JButton();
+        btnNikki = new JButton();
 
         btnNext = new JButton("Next Panel");
         infoButton = new JButton("InfoPage");
@@ -39,7 +39,7 @@ public class TESTButtonsPanel {
 
         // Set button size (optional to adjust the button size)
         startButton.setBounds(300, 400, 250, 120);  // Adjust the position and size of the start button
-        btnDisclaimer.setBounds(280, 425, 325, 90); // Adjust the position and size of the disclaimer button
+        btnDisclaimer.setBounds(280, 450, 335, 100); // Adjust the position and size of the disclaimer button
         btnSuspects.setBounds(640, 275, 175, 125);
         btnReady.setBounds(279, 430, 325, 90);
         btnGojo.setBounds(140, 410, 300, 80);
@@ -75,11 +75,13 @@ public class TESTButtonsPanel {
             }
         });
 
-        btnSuspects.addActionListener(new ActionListener() {
+        infoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                btnPanel.add(btnNext, BorderLayout.EAST);
-                cardLayoutPanel2.showCard("Suspects");
+                CardLayout cl = (CardLayout)(cardLayoutPanel2.getMainPanel().getLayout());
+                cl.show(cardLayoutPanel2.getMainPanel(), "Info");  // Show the first panel
+                infoButton.setVisible(false);
+                btnNext.setVisible(true);
             }
         });
 
@@ -94,13 +96,11 @@ public class TESTButtonsPanel {
             }
         });
 
-        infoButton.addActionListener(new ActionListener() {
+        btnSuspects.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CardLayout cl = (CardLayout)(cardLayoutPanel2.getMainPanel().getLayout());
-                cl.show(cardLayoutPanel2.getMainPanel(), "Info");  // Show the first panel
-                infoButton.setVisible(false);
-                btnNext.setVisible(true);
+                btnPanel.add(btnNext, BorderLayout.EAST);
+                cardLayoutPanel2.showCard("Suspects");
             }
         });
 
@@ -128,7 +128,6 @@ public class TESTButtonsPanel {
             }
         });
 
-
         btnGogo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -136,7 +135,6 @@ public class TESTButtonsPanel {
                 cardLayoutPanel2.showCard("Objection");
             }
         });
-
 
         btnNikki.addActionListener(new ActionListener() {
             @Override

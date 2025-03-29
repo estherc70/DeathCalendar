@@ -17,7 +17,7 @@ public class Calendar extends JButton {
 
         // create buttons
         for (int i = 0; i < allDays.length; i++) {
-            allDays[i] = new JButton(image);
+            allDays[i] = new JButton();
 
             int dayNumber = i + 1;
             allDays[i].addActionListener(new ActionListener() {
@@ -90,7 +90,6 @@ public class Calendar extends JButton {
             counter = 23;
         }
     }
-
 
     // Method to open a new window
     private static void openNewWindow(int calenderDay) {
