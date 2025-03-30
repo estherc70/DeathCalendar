@@ -123,11 +123,13 @@ public class Calendar extends JButton {
         JFrame newWindow = new JFrame("Day " + calenderDay);
         newWindow.setSize(500, 700);  // Set the size of the new window
         newWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close when clicked on X
-        newWindow.setLocationRelativeTo(null);  // Center the window on screen
+        newWindow.setLayout(null); // Use null layout for absolute positioning
 
         // Add some content to the new window
-        JLabel label = new JLabel("This day " + calenderDay + " of her diary");
-//        JLabel label = new JLabel(dialogue[calenderDay]);
+//        JLabel label = new JLabel("This day " + calenderDay + " of her diary");
+        JLabel label = new JLabel(dialogue[calenderDay]);
+        label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+        label.setBounds(100, 300, 200, 30);
         newWindow.add(label);
 
         // Make the new window visible

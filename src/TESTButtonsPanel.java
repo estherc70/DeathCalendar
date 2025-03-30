@@ -115,7 +115,8 @@ public class TESTButtonsPanel {
         btnGojo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                btnPanel.add(btnNext, BorderLayout.EAST);
+                infoButton.setVisible(false);
+                btnNext.setVisible(false);
                 cardLayoutPanel2.showCard("Good Ending");
             }
         });
@@ -123,7 +124,8 @@ public class TESTButtonsPanel {
         btnJoGo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                btnPanel.add(btnNext, BorderLayout.EAST);
+                infoButton.setVisible(false);
+                btnNext.setVisible(false);
                 cardLayoutPanel2.showCard("Objection");
             }
         });
@@ -131,7 +133,8 @@ public class TESTButtonsPanel {
         btnGogo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                btnPanel.add(btnNext, BorderLayout.EAST);
+                infoButton.setVisible(false);
+                btnNext.setVisible(false);
                 cardLayoutPanel2.showCard("Objection");
             }
         });
@@ -139,7 +142,8 @@ public class TESTButtonsPanel {
         btnNikki.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                btnPanel.add(btnNext, BorderLayout.EAST);
+                infoButton.setVisible(false);
+                btnNext.setVisible(false);
                 cardLayoutPanel2.showCard("Objection");
             }
         });
