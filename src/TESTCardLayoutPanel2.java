@@ -22,6 +22,12 @@ public class TESTCardLayoutPanel2 extends JFrame{
         informationPage.setBackground(Color.BLACK);
         //JPanel calendarPage = TESTPanelClass.createPanel("src/images/Calendar.png");
         JPanel suspectPage = TESTPanelClass.createPanel("src/images/Suspects.png");
+
+        JPanel gojoPage = TESTPanelClass.createPanel("src/images/Gojo.png");
+        JPanel joGoPage = TESTPanelClass.createPanel("src/images/JoGo.png");
+        JPanel nikkiPage = TESTPanelClass.createPanel("src/images/nikki.png");
+        JPanel megumiPage = TESTPanelClass.createPanel("src/images/megumi.png");
+
         JPanel murdererPage = TESTPanelClass.createPanel("src/images/PickTheMurderer.png");
         JPanel goodEndingPage = TESTPanelClass.createPanel("src/images/GoodEnding.png");
         JPanel objectionPage = TESTPanelClass.createPanel("src/images/Objection.png");
@@ -36,6 +42,12 @@ public class TESTCardLayoutPanel2 extends JFrame{
         disclaimerPage.setLayout(null);
         calendarPanel.getCalendarPage().setLayout(null);
         suspectPage.setLayout(null);
+
+        gojoPage.setLayout(null);
+        joGoPage.setLayout(null);
+        nikkiPage.setLayout(null);
+        megumiPage.setLayout(null);
+
         murdererPage.setLayout(null);
 
         // Add specific buttons for specific card panels
@@ -43,7 +55,19 @@ public class TESTCardLayoutPanel2 extends JFrame{
         disclaimerPage.add(buttonsPanel.getBtnDisclaimer());
         calendarPanel.calendarPage.add(buttonsPanel.getBtnSuspects());
         suspectPage.add(buttonsPanel.getBtnReady());
-        murdererPage.add(buttonsPanel.getBtnGojo());
+
+        suspectPage.add(buttonsPanel.geteGojo());
+        gojoPage.add(buttonsPanel.getBtnReturn());
+
+        suspectPage.add(buttonsPanel.geteNikki());
+        nikkiPage.add(buttonsPanel.getBtnReturn2());
+
+        suspectPage.add(buttonsPanel.geteGogo());
+        megumiPage.add(buttonsPanel.getBtnReturn3());
+
+        suspectPage.add(buttonsPanel.geteJoGo());
+        joGoPage.add(buttonsPanel.getBtnReturn4());
+        //murdererPage.add(buttonsPanel.getBtnGojo());
 
         murdererPage.add(buttonsPanel.getBtnGojo());
         murdererPage.add(buttonsPanel.getBtnJoGo());
@@ -56,6 +80,10 @@ public class TESTCardLayoutPanel2 extends JFrame{
         mainPanel.add(informationPage, "Info");
         mainPanel.add(calendarPanel.calendarPage, "Calendar");
         mainPanel.add(suspectPage, "Suspects");
+        mainPanel.add(gojoPage,"Gojo");
+        mainPanel.add(nikkiPage,"Nikki");
+        mainPanel.add(joGoPage,"JoGo");
+        mainPanel.add(megumiPage,"Gogo");
         mainPanel.add(murdererPage, "Pick the Murderer");
         mainPanel.add(goodEndingPage, "Good Ending");
         mainPanel.add(objectionPage,"Objection");
