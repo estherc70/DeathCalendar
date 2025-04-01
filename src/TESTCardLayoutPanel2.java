@@ -5,7 +5,9 @@ import java.awt.*;
 public class TESTCardLayoutPanel2 extends JFrame{
     private JPanel mainPanel;
     private TESTButtonsPanel buttonsPanel;
+    //private TESTButtonsPanel buttonsPanel1;
     private CardLayout cardLayout;
+    //private JPanel megumiPage;
 
     public TESTCardLayoutPanel2() {
         // Initialize CardLayout
@@ -15,6 +17,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
 
         // Set up the ButtonPanel
         buttonsPanel = new TESTButtonsPanel(this);
+        //buttonsPanel1 = new TESTButtonsPanel(this, megumiPage);
 
         JPanel startPage = TESTPanelClass.createPanel("src/images/StartBackground.PNG");
         JPanel disclaimerPage = TESTPanelClass.createPanel("src/images/Disclaimer.png");
@@ -64,6 +67,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
 
         suspectPage.add(buttonsPanel.geteGogo());
         megumiPage.add(buttonsPanel.getBtnReturn3());
+        megumiPage.add(buttonsPanel.getIntroduce1());
 
         suspectPage.add(buttonsPanel.geteJoGo());
         joGoPage.add(buttonsPanel.getBtnReturn4());

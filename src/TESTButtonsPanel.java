@@ -6,12 +6,36 @@ import java.awt.event.ActionListener;
 public class TESTButtonsPanel {
     private JButton startButton, btnDisclaimer, btnNext,
             infoButton, btnSuspects, btnReady,
-            btnGojo, btnJoGo, btnGogo, btnNikki, eGojo, eJoGo, eNikki, eGogo, btnReturn, btnReturn2, btnReturn3, btnReturn4;
-    private JPanel btnPanel;
+            btnGojo, btnJoGo, btnGogo,
+            btnNikki, eGojo, eJoGo,
+            eNikki, eGogo, btnReturn,
+            btnReturn2, btnReturn3, btnReturn4,
+            introduce1;
+    private JPanel btnPanel, megumiPage;
+    private TESTPanelClass displayPanel;
+    private TESTCardLayoutPanel2 cardLayoutPanel2;
+
+
+//    public TESTButtonsPanel(TESTCardLayoutPanel2 cardLayoutPanel2, JPanel megumiPage) {
+//        this.megumiPage = megumiPage;
+//        // Create the button panel
+//        btnPanel = new JPanel(new BorderLayout());
+//
+//        // Initialize buttons
+//        introduce1 = new JButton("Introduce");
+//
+//        // Add buttons to the panel
+//        btnPanel.add(introduce1, BorderLayout.CENTER);
+//
+//        // Add action listeners
+//        addActionListeners();
+//    }
 
     public TESTButtonsPanel(TESTCardLayoutPanel2 cardLayoutPanel2) {
         // Create button panel ***
+        displayPanel = new TESTPanelClass();
         btnPanel = new JPanel(new BorderLayout());
+        this.cardLayoutPanel2 = cardLayoutPanel2;
 
         // Create the buttons
         startButton = new JButton(new ImageIcon("src/images/refactor2.0.png"));
@@ -34,6 +58,8 @@ public class TESTButtonsPanel {
         btnReturn3 = new JButton();
         btnReturn4 = new JButton();
 
+        introduce1 = new JButton();
+
         btnNext = new JButton("Next Panel");
         infoButton = new JButton("InfoPage");
 
@@ -54,6 +80,7 @@ public class TESTButtonsPanel {
         customizeButton(btnReturn2);
         customizeButton(btnReturn3);
         customizeButton(btnReturn4);
+        customizeButton(introduce1);
 
         // Set button size (optional to adjust the button size)
         startButton.setBounds(300, 400, 250, 120);  // Adjust the position and size of the start button
@@ -75,6 +102,8 @@ public class TESTButtonsPanel {
         btnReturn3.setBounds(693,545,160,60);
         btnReturn4.setBounds(693,545,160,60);
 
+        introduce1.setBounds(515,90,250,70);
+
 
         btnPanel.add(startButton);
         btnPanel.add(btnDisclaimer);
@@ -82,9 +111,23 @@ public class TESTButtonsPanel {
         //btnPanel.add(btnGojo);
         btnNext.setVisible(false);
         btnPanel.add(btnNext);
+        btnPanel.add(introduce1, BorderLayout.CENTER);
 
         addActionListeners(cardLayoutPanel2);
+        addActionListeners();
+    }
 
+    private void addActionListeners() {
+        // When the introduce1 button is clicked, repaint the megumiPage
+        introduce1.addActionListener(e -> {
+            // Find the "Megumi" card by name
+            megumiPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(8); // Get Megumi card by index
+            // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
+            if (megumiPage != null && megumiPage instanceof TESTPanelClass) {
+                ((TESTPanelClass) megumiPage).setMessage("My name is Gogo.");  // Set message and repaint
+                megumiPage.repaint();  // Force repaint after setting message
+            }
+        });
     }
 
     private void addActionListeners(final TESTCardLayoutPanel2 cardLayoutPanel2) {
@@ -232,12 +275,13 @@ public class TESTButtonsPanel {
                 cardLayoutPanel2.showCard("Suspects");
             }
         });
+
     }
 
     private void customizeButton(JButton button) {
-        button.setOpaque(false);
-        button.setContentAreaFilled(false);
-        button.setBorderPainted(false);
+        button.setOpaque(true);
+        button.setContentAreaFilled(true);
+        button.setBorderPainted(true);
     }
 
     // Method to create and return a panel that holds the buttons
@@ -307,6 +351,10 @@ public class TESTButtonsPanel {
 
     public JButton getBtnReturn4() {
         return btnReturn4;
+    }
+
+    public JButton getIntroduce1() {
+        return introduce1;
     }
 }
 
