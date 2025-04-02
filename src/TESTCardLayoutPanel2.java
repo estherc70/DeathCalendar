@@ -5,7 +5,6 @@ import java.awt.*;
 public class TESTCardLayoutPanel2 extends JFrame{
     private JPanel mainPanel;
     private TESTButtonsPanel buttonsPanel;
-    //private TESTButtonsPanel buttonsPanel1;
     private CardLayout cardLayout;
     //private JPanel megumiPage;
 

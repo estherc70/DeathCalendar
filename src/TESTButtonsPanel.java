@@ -19,6 +19,7 @@ public class TESTButtonsPanel {
     private GogoDialogue goGo;
     private JoGoDiagolue joGo;
     private GojoDialogue gojo;
+    private Inventory inventory;
 
 
 //    public TESTButtonsPanel(TESTCardLayoutPanel2 cardLayoutPanel2, JPanel megumiPage) {
@@ -37,6 +38,8 @@ public class TESTButtonsPanel {
 //    }
 
     public TESTButtonsPanel(TESTCardLayoutPanel2 cardLayoutPanel2) {
+        inventory = new Inventory();
+
         // Create button panel ***
         displayPanel = new TESTPanelClass();
         btnPanel = new JPanel(new BorderLayout());
@@ -203,6 +206,71 @@ public class TESTButtonsPanel {
                 cl.show(cardLayoutPanel2.getMainPanel(), "Info");  // Show the first panel
                 infoButton.setVisible(false);
                 btnNext.setVisible(true);
+            }
+        });
+
+        interactKnife.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 JFrame newWindow = new JFrame("Inventory");
+                 newWindow.setSize(500, 500);  // Set the size of the new window
+                 newWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close when clicked on X
+                 newWindow.setLayout(null);
+
+                 JLabel label = new JLabel("You found a knife!");
+                 label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+                 label.setBounds(100, 300, 200, 30);
+                 newWindow.add(label);
+
+                 // Make the new window visible
+                 newWindow.setVisible(true);
+                 inventory.setKnife(true);
+             }
+         });
+
+        interactDiary.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame newWindow = new JFrame("Inventory");
+                newWindow.setSize(500, 500);  // Set the size of the new window
+                newWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close when clicked on X
+                newWindow.setLayout(null);
+
+                JLabel label = new JLabel("You found a Diary!");
+                label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+                label.setBounds(100, 300, 200, 30);
+                newWindow.add(label);
+
+                // Make the new window visible
+                newWindow.setVisible(true);
+                inventory.setDiary(true);
+            }
+        });
+
+        interactHair.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame newWindow = new JFrame("Inventory");
+                newWindow.setSize(500, 500);  // Set the size of the new window
+                newWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close when clicked on X
+                newWindow.setLayout(null);
+
+                JLabel label = new JLabel("You found a strand of hair!");
+                label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+                label.setBounds(100, 300, 200, 30);
+                newWindow.add(label);
+
+                // Make the new window visible
+                newWindow.setVisible(true);
+                inventory.setHair(true);
+            }
+        });
+
+        continueInfo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cl = (CardLayout) (cardLayoutPanel2.getMainPanel().getLayout());
+                cl.next(cardLayoutPanel2.getMainPanel());  // Switch to the next card
             }
         });
 
