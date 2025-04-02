@@ -120,5 +120,6 @@ public class TESTCardLayoutPanel2 extends JFrame{
     public static void main(String[] args) {
         // Create and display the main frame
         new TESTCardLayoutPanel2();
+        SoundHandler.RunMusic("src/sound.wav");
     }
 }
