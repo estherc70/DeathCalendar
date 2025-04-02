@@ -31,7 +31,7 @@ public class TESTPanelClass extends JPanel {
         g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
         if (!message.isEmpty()) {
             g.setColor(Color.WHITE);  // Set text color (you can change the color)
-            g.setFont(new Font("Arial", Font.BOLD, 30));  // Set the font and size
+            g.setFont(new Font("Arial", Font.BOLD, 20));  // Set the font and size
             g.drawString(message,50,500);
         }
     }

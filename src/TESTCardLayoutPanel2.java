@@ -61,6 +61,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
 
         suspectPage.add(buttonsPanel.geteGojo());
         gojoPage.add(buttonsPanel.getBtnReturn());
+        gojoPage.add(buttonsPanel.getIntroduce3());
 
         suspectPage.add(buttonsPanel.geteNikki());
         nikkiPage.add(buttonsPanel.getBtnReturn2());
@@ -71,6 +72,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
 
         suspectPage.add(buttonsPanel.geteJoGo());
         joGoPage.add(buttonsPanel.getBtnReturn4());
+        joGoPage.add(buttonsPanel.getIntroduce2());
         //murdererPage.add(buttonsPanel.getBtnGojo());
 
         murdererPage.add(buttonsPanel.getBtnGojo());

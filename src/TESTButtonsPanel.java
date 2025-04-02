@@ -10,10 +10,13 @@ public class TESTButtonsPanel {
             btnNikki, eGojo, eJoGo,
             eNikki, eGogo, btnReturn,
             btnReturn2, btnReturn3, btnReturn4,
-            introduce1;
-    private JPanel btnPanel, megumiPage;
+            introduce1, introduce2, introduce3;
+    private JPanel btnPanel, megumiPage, joGoPage, goJoPage;
     private TESTPanelClass displayPanel;
     private TESTCardLayoutPanel2 cardLayoutPanel2;
+    private GogoDialogue goGo;
+    private JoGoDiagolue joGo;
+    private GojoDialogue gojo;
 
 
 //    public TESTButtonsPanel(TESTCardLayoutPanel2 cardLayoutPanel2, JPanel megumiPage) {
@@ -36,6 +39,9 @@ public class TESTButtonsPanel {
         displayPanel = new TESTPanelClass();
         btnPanel = new JPanel(new BorderLayout());
         this.cardLayoutPanel2 = cardLayoutPanel2;
+        goGo = new GogoDialogue("Gogo",12,"step-son");
+        joGo = new JoGoDiagolue("JoGo",28,"her friend");
+        gojo = new GojoDialogue("Gojo",28,"husband");
 
         // Create the buttons
         startButton = new JButton(new ImageIcon("src/images/refactor2.0.png"));
@@ -59,6 +65,8 @@ public class TESTButtonsPanel {
         btnReturn4 = new JButton();
 
         introduce1 = new JButton();
+        introduce2 = new JButton();
+        introduce3 = new JButton();
 
         btnNext = new JButton("Next Panel");
         infoButton = new JButton("InfoPage");
@@ -81,6 +89,8 @@ public class TESTButtonsPanel {
         customizeButton(btnReturn3);
         customizeButton(btnReturn4);
         customizeButton(introduce1);
+        customizeButton(introduce2);
+        customizeButton(introduce3);
 
         // Set button size (optional to adjust the button size)
         startButton.setBounds(300, 400, 250, 120);  // Adjust the position and size of the start button
@@ -103,7 +113,8 @@ public class TESTButtonsPanel {
         btnReturn4.setBounds(693,545,160,60);
 
         introduce1.setBounds(515,90,250,70);
-
+        introduce2.setBounds(515,90,250,70);
+        introduce3.setBounds(515,90,250,70);
 
         btnPanel.add(startButton);
         btnPanel.add(btnDisclaimer);
@@ -112,6 +123,8 @@ public class TESTButtonsPanel {
         btnNext.setVisible(false);
         btnPanel.add(btnNext);
         btnPanel.add(introduce1, BorderLayout.CENTER);
+        btnPanel.add(introduce2, BorderLayout.CENTER);
+        btnPanel.add(introduce3, BorderLayout.CENTER);
 
         addActionListeners(cardLayoutPanel2);
         addActionListeners();
@@ -124,8 +137,28 @@ public class TESTButtonsPanel {
             megumiPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(8); // Get Megumi card by index
             // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
             if (megumiPage != null && megumiPage instanceof TESTPanelClass) {
-                ((TESTPanelClass) megumiPage).setMessage("My name is Gogo.");  // Set message and repaint
+                ((TESTPanelClass) megumiPage).setMessage(goGo.introduce());  // Set message and repaint
                 megumiPage.repaint();  // Force repaint after setting message
+            }
+        });
+
+        introduce2.addActionListener(e -> {
+            // Find the "Megumi" card by name
+            joGoPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(7); // Get Megumi card by index
+            // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
+            if (joGoPage != null && joGoPage instanceof TESTPanelClass) {
+                ((TESTPanelClass) joGoPage).setMessage(joGo.introduce());  // Set message and repaint
+                joGoPage.repaint();  // Force repaint after setting message
+            }
+        });
+
+        introduce3.addActionListener(e -> {
+            // Find the "Megumi" card by name
+            goJoPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(5); // Get Megumi card by index
+            // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
+            if (goJoPage != null && goJoPage instanceof TESTPanelClass) {
+                ((TESTPanelClass) goJoPage).setMessage(gojo.introduce());  // Set message and repaint
+                goJoPage.repaint();  // Force repaint after setting message
             }
         });
     }
@@ -355,6 +388,14 @@ public class TESTButtonsPanel {
 
     public JButton getIntroduce1() {
         return introduce1;
+    }
+
+    public JButton getIntroduce2() {
+        return introduce2;
+    }
+
+    public JButton getIntroduce3() {
+        return introduce3;
     }
 }
 
