@@ -11,7 +11,9 @@ public class TESTButtonsPanel {
             eNikki, eGogo, btnReturn,
             btnReturn2, btnReturn3, btnReturn4,
             introduce1, introduce2, introduce3, introduce4,
-            talk1, talk2, talk3, talk4;
+            talk1, talk2, talk3, talk4,
+            interactKnife, interactDiary, interactHair,
+            continueInfo;
     private JPanel btnPanel, megumiPage, joGoPage, goJoPage, nikkiPage;
     private TESTPanelClass displayPanel;
     private TESTCardLayoutPanel2 cardLayoutPanel2;
@@ -51,6 +53,11 @@ public class TESTButtonsPanel {
         btnDisclaimer = new JButton();
         btnSuspects = new JButton();
 
+        interactKnife = new JButton();
+        interactDiary = new JButton();
+        interactHair = new JButton();
+        continueInfo = new JButton();
+
         btnReady = new JButton();
         btnGojo = new JButton();
         btnJoGo = new JButton();
@@ -83,6 +90,10 @@ public class TESTButtonsPanel {
         // Set the opaque
         customizeButton(startButton);
         customizeButton(btnDisclaimer);
+        customizeButton(interactKnife);
+        customizeButton(interactDiary);
+        customizeButton(interactHair);
+        customizeButton(continueInfo);
         customizeButton(btnSuspects);
         customizeButton(btnReady);
         customizeButton(btnGojo);
@@ -108,9 +119,14 @@ public class TESTButtonsPanel {
 
         // Set button size (optional to adjust the button size)
         startButton.setBounds(300, 400, 250, 120);  // Adjust the position and size of the start button
-        btnDisclaimer.setBounds(280, 450, 335, 100); // Adjust the position and size of the disclaimer button
+        btnDisclaimer.setBounds(278, 445, 335, 93); // Adjust the position and size of the disclaimer button
         btnSuspects.setBounds(640, 275, 175, 125);
         btnReady.setBounds(279, 430, 325, 90);
+
+        interactKnife.setBounds(500,285,120,35);
+        interactDiary.setBounds(750,300,120,35);
+        interactHair.setBounds(735,405,120,35);
+        continueInfo.setBounds(650,550,200,53);
 
         btnGojo.setBounds(140, 410, 300, 80);
         btnJoGo.setBounds(445, 410, 300, 80);
@@ -400,6 +416,22 @@ public class TESTButtonsPanel {
 
     public JButton getBtnDisclaimer() {
         return btnDisclaimer;
+    }
+
+    public JButton getInteractKnife() {
+        return interactKnife;
+    }
+
+    public JButton getInteractDiary() {
+        return interactDiary;
+    }
+
+    public JButton getInteractHair() {
+        return interactHair;
+    }
+
+    public JButton getContinueInfo() {
+        return continueInfo;
     }
 
     public JButton getBtnReady() {

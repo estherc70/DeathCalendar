@@ -21,8 +21,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
 
         JPanel startPage = TESTPanelClass.createPanel("src/images/StartBackground.PNG");
         JPanel disclaimerPage = TESTPanelClass.createPanel("src/images/Disclaimer.png");
-        JPanel informationPage = new JPanel();
-        informationPage.setBackground(Color.BLACK);
+        JPanel informationPage = TESTPanelClass.createPanel("src/images/InfoPage.png");
         //JPanel calendarPage = TESTPanelClass.createPanel("src/images/Calendar.png");
         JPanel suspectPage = TESTPanelClass.createPanel("src/images/Suspects.png");
 
@@ -43,6 +42,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
         // Set layout for each panel (use null layout for manual control)
         startPage.setLayout(null);  // Using null layout to manually control button position
         disclaimerPage.setLayout(null);
+        informationPage.setLayout(null);
         calendarPanel.getCalendarPage().setLayout(null);
         suspectPage.setLayout(null);
 
@@ -56,6 +56,12 @@ public class TESTCardLayoutPanel2 extends JFrame{
         // Add specific buttons for specific card panels
         startPage.add(buttonsPanel.getStartButton());
         disclaimerPage.add(buttonsPanel.getBtnDisclaimer());
+
+        informationPage.add(buttonsPanel.getInteractKnife());
+        informationPage.add(buttonsPanel.getInteractDiary());
+        informationPage.add(buttonsPanel.getInteractHair());
+        informationPage.add(buttonsPanel.getContinueInfo());
+
         calendarPanel.calendarPage.add(buttonsPanel.getBtnSuspects());
         suspectPage.add(buttonsPanel.getBtnReady());
 
@@ -125,5 +131,6 @@ public class TESTCardLayoutPanel2 extends JFrame{
     public static void main(String[] args) {
         // Create and display the main frame
         new TESTCardLayoutPanel2();
+        SoundHandler.RunMusic("src/sound.wav");
     }
 }
