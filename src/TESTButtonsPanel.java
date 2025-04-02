@@ -10,13 +10,15 @@ public class TESTButtonsPanel {
             btnNikki, eGojo, eJoGo,
             eNikki, eGogo, btnReturn,
             btnReturn2, btnReturn3, btnReturn4,
-            introduce1, introduce2, introduce3;
-    private JPanel btnPanel, megumiPage, joGoPage, goJoPage;
+            introduce1, introduce2, introduce3, introduce4,
+            talk1, talk2, talk3, talk4;
+    private JPanel btnPanel, megumiPage, joGoPage, goJoPage, nikkiPage;
     private TESTPanelClass displayPanel;
     private TESTCardLayoutPanel2 cardLayoutPanel2;
     private GogoDialogue goGo;
     private JoGoDiagolue joGo;
     private GojoDialogue gojo;
+    private NikkiDialogue nikki;
 
 
 //    public TESTButtonsPanel(TESTCardLayoutPanel2 cardLayoutPanel2, JPanel megumiPage) {
@@ -42,6 +44,7 @@ public class TESTButtonsPanel {
         goGo = new GogoDialogue("Gogo",12,"step-son");
         joGo = new JoGoDiagolue("JoGo",28,"her friend");
         gojo = new GojoDialogue("Gojo",28,"husband");
+        nikki = new NikkiDialogue("Nikki",25,"the co-worker");
 
         // Create the buttons
         startButton = new JButton(new ImageIcon("src/images/refactor2.0.png"));
@@ -67,6 +70,12 @@ public class TESTButtonsPanel {
         introduce1 = new JButton();
         introduce2 = new JButton();
         introduce3 = new JButton();
+        introduce4 = new JButton();
+
+        talk1 = new JButton();
+        talk2 = new JButton();
+        talk3 = new JButton();
+        talk4 = new JButton();
 
         btnNext = new JButton("Next Panel");
         infoButton = new JButton("InfoPage");
@@ -91,6 +100,11 @@ public class TESTButtonsPanel {
         customizeButton(introduce1);
         customizeButton(introduce2);
         customizeButton(introduce3);
+        customizeButton(introduce4);
+        customizeButton(talk1);
+        customizeButton(talk2);
+        customizeButton(talk3);
+        customizeButton(talk4);
 
         // Set button size (optional to adjust the button size)
         startButton.setBounds(300, 400, 250, 120);  // Adjust the position and size of the start button
@@ -115,6 +129,13 @@ public class TESTButtonsPanel {
         introduce1.setBounds(515,90,250,70);
         introduce2.setBounds(515,90,250,70);
         introduce3.setBounds(515,90,250,70);
+        introduce4.setBounds(515,90,250,70);
+
+        talk1.setBounds(515,195,250,70);
+        talk2.setBounds(515,195,250,70);
+        talk3.setBounds(515,195,250,70);
+        talk4.setBounds(515,195,250,70);
+
 
         btnPanel.add(startButton);
         btnPanel.add(btnDisclaimer);
@@ -125,6 +146,7 @@ public class TESTButtonsPanel {
         btnPanel.add(introduce1, BorderLayout.CENTER);
         btnPanel.add(introduce2, BorderLayout.CENTER);
         btnPanel.add(introduce3, BorderLayout.CENTER);
+        btnPanel.add(introduce4, BorderLayout.CENTER);
 
         addActionListeners(cardLayoutPanel2);
         addActionListeners();
@@ -159,6 +181,56 @@ public class TESTButtonsPanel {
             if (goJoPage != null && goJoPage instanceof TESTPanelClass) {
                 ((TESTPanelClass) goJoPage).setMessage(gojo.introduce());  // Set message and repaint
                 goJoPage.repaint();  // Force repaint after setting message
+            }
+        });
+
+        introduce4.addActionListener(e -> {
+            // Find the "Megumi" card by name
+            nikkiPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(6); // Get Megumi card by index
+            // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
+            if (nikkiPage != null && nikkiPage instanceof TESTPanelClass) {
+                ((TESTPanelClass) nikkiPage).setMessage(nikki.introduce());  // Set message and repaint
+                nikkiPage.repaint();  // Force repaint after setting message
+            }
+        });
+
+        talk1.addActionListener(e -> {
+            // Find the "Megumi" card by name
+            megumiPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(8); // Get Megumi card by index
+            // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
+            if (megumiPage != null && megumiPage instanceof TESTPanelClass) {
+                ((TESTPanelClass) megumiPage).setMessage(goGo.talk());  // Set message and repaint
+                megumiPage.repaint();  // Force repaint after setting message
+            }
+        });
+
+        talk2.addActionListener(e -> {
+            // Find the "Megumi" card by name
+            joGoPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(7); // Get Megumi card by index
+            // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
+            if (joGoPage != null && joGoPage instanceof TESTPanelClass) {
+                ((TESTPanelClass) joGoPage).setMessage(joGo.talk());  // Set message and repaint
+                joGoPage.repaint();  // Force repaint after setting message
+            }
+        });
+
+        talk3.addActionListener(e -> {
+            // Find the "Megumi" card by name
+            goJoPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(5); // Get Megumi card by index
+            // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
+            if (goJoPage != null && goJoPage instanceof TESTPanelClass) {
+                ((TESTPanelClass) goJoPage).setMessage(gojo.talk());  // Set message and repaint
+                goJoPage.repaint();  // Force repaint after setting message
+            }
+        });
+
+        talk4.addActionListener(e -> {
+            // Find the "Megumi" card by name
+            nikkiPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(6); // Get Megumi card by index
+            // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
+            if (nikkiPage != null && nikkiPage instanceof TESTPanelClass) {
+                ((TESTPanelClass) nikkiPage).setMessage(nikki.talk());  // Set message and repaint
+                nikkiPage.repaint();  // Force repaint after setting message
             }
         });
     }
@@ -396,6 +468,26 @@ public class TESTButtonsPanel {
 
     public JButton getIntroduce3() {
         return introduce3;
+    }
+
+    public JButton getIntroduce4() {
+        return introduce4;
+    }
+
+    public JButton getTalk1() {
+        return talk1;
+    }
+
+    public JButton getTalk2() {
+        return talk2;
+    }
+
+    public JButton getTalk3() {
+        return talk3;
+    }
+
+    public JButton getTalk4() {
+        return talk4;
     }
 }
 

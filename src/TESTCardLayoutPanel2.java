@@ -62,17 +62,22 @@ public class TESTCardLayoutPanel2 extends JFrame{
         suspectPage.add(buttonsPanel.geteGojo());
         gojoPage.add(buttonsPanel.getBtnReturn());
         gojoPage.add(buttonsPanel.getIntroduce3());
+        gojoPage.add(buttonsPanel.getTalk3());
 
         suspectPage.add(buttonsPanel.geteNikki());
         nikkiPage.add(buttonsPanel.getBtnReturn2());
+        nikkiPage.add(buttonsPanel.getIntroduce4());
+        nikkiPage.add(buttonsPanel.getTalk4());
 
         suspectPage.add(buttonsPanel.geteGogo());
         megumiPage.add(buttonsPanel.getBtnReturn3());
         megumiPage.add(buttonsPanel.getIntroduce1());
+        megumiPage.add(buttonsPanel.getTalk1());
 
         suspectPage.add(buttonsPanel.geteJoGo());
         joGoPage.add(buttonsPanel.getBtnReturn4());
         joGoPage.add(buttonsPanel.getIntroduce2());
+        joGoPage.add(buttonsPanel.getTalk2());
         //murdererPage.add(buttonsPanel.getBtnGojo());
 
         murdererPage.add(buttonsPanel.getBtnGojo());
