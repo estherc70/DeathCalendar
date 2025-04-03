@@ -13,7 +13,7 @@ public class TESTButtonsPanel {
             introduce1, introduce2, introduce3, introduce4,
             talk1, talk2, talk3, talk4,
             interactKnife, interactDiary, interactHair,
-            continueInfo;
+            continueInfo, btnInventory;
     private JPanel btnPanel, megumiPage, joGoPage, goJoPage, nikkiPage;
     private TESTPanelClass displayPanel;
     private TESTCardLayoutPanel2 cardLayoutPanel2;
@@ -23,21 +23,6 @@ public class TESTButtonsPanel {
     private NikkiDialogue nikki;
     private Inventory inventory;
 
-
-//    public TESTButtonsPanel(TESTCardLayoutPanel2 cardLayoutPanel2, JPanel megumiPage) {
-//        this.megumiPage = megumiPage;
-//        // Create the button panel
-//        btnPanel = new JPanel(new BorderLayout());
-//
-//        // Initialize buttons
-//        introduce1 = new JButton("Introduce");
-//
-//        // Add buttons to the panel
-//        btnPanel.add(introduce1, BorderLayout.CENTER);
-//
-//        // Add action listeners
-//        addActionListeners();
-//    }
 
     public TESTButtonsPanel(TESTCardLayoutPanel2 cardLayoutPanel2) {
         inventory = new Inventory();
@@ -55,6 +40,8 @@ public class TESTButtonsPanel {
         startButton = new JButton(new ImageIcon("src/images/refactor2.0.png"));
         btnDisclaimer = new JButton();
         btnSuspects = new JButton();
+
+        btnInventory = new JButton();
 
         interactKnife = new JButton();
         interactDiary = new JButton();
@@ -98,6 +85,7 @@ public class TESTButtonsPanel {
         customizeButton(interactHair);
         customizeButton(continueInfo);
         customizeButton(btnSuspects);
+        customizeButton(btnInventory);
         customizeButton(btnReady);
         customizeButton(btnGojo);
         customizeButton(btnJoGo);
@@ -154,6 +142,8 @@ public class TESTButtonsPanel {
         talk2.setBounds(515,195,250,70);
         talk3.setBounds(515,195,250,70);
         talk4.setBounds(515,195,250,70);
+
+        btnInventory.setBounds(650, 430, 160, 160);
 
 
         btnPanel.add(startButton);
@@ -588,6 +578,10 @@ public class TESTButtonsPanel {
 
     public JButton getTalk4() {
         return talk4;
+    }
+
+    public JButton getBtnInventory() {
+        return btnInventory;
     }
 }
 

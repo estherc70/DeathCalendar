@@ -23,6 +23,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
         JPanel informationPage = TESTPanelClass.createPanel("src/images/InfoPage.png");
         //JPanel calendarPage = TESTPanelClass.createPanel("src/images/Calendar.png");
         JPanel suspectPage = TESTPanelClass.createPanel("src/images/Suspects.png");
+        JPanel inventoryPage = TESTPanelClass.createPanel("src/images/InventoryNothing.png");
 
         JPanel gojoPage = TESTPanelClass.createPanel("src/images/Gojo.png");
         JPanel joGoPage = TESTPanelClass.createPanel("src/images/JoGo.png");
@@ -44,6 +45,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
         informationPage.setLayout(null);
         calendarPanel.getCalendarPage().setLayout(null);
         suspectPage.setLayout(null);
+        inventoryPage.setLayout(null);
 
         gojoPage.setLayout(null);
         joGoPage.setLayout(null);
@@ -62,6 +64,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
         informationPage.add(buttonsPanel.getContinueInfo());
 
         calendarPanel.calendarPage.add(buttonsPanel.getBtnSuspects());
+        calendarPanel.calendarPage.add(buttonsPanel.getBtnInventory());
         suspectPage.add(buttonsPanel.getBtnReady());
 
         suspectPage.add(buttonsPanel.geteGojo());
@@ -95,6 +98,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
         mainPanel.add(disclaimerPage, "Disclaimer");
         mainPanel.add(informationPage, "Info");
         mainPanel.add(calendarPanel.calendarPage, "Calendar");
+        mainPanel.add(inventoryPage,"Inventory");
         mainPanel.add(suspectPage, "Suspects");
         mainPanel.add(gojoPage,"Gojo");
         mainPanel.add(nikkiPage,"Nikki");

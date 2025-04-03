@@ -29,7 +29,7 @@ public class Inventory {
         return diary;
     }
 
-    public boolean hair() {
+    public boolean getHair() {
         return hair;
     }
 }
