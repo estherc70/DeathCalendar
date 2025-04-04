@@ -279,6 +279,7 @@ public class TESTButtonsPanel {
                  newWindow.setSize(500, 500);  // Set the size of the new window
                  newWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close when clicked on X
                  newWindow.setLayout(null);
+                 newWindow.setLocationRelativeTo(null); // Center the window on the screen
 
                  // add image as background
                  JLabel contentPane = new JLabel();
@@ -300,6 +301,7 @@ public class TESTButtonsPanel {
                 newWindow.setSize(500, 500);  // Set the size of the new window
                 newWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close when clicked on X
                 newWindow.setLayout(null);
+                newWindow.setLocationRelativeTo(null); // Center the window on the screen
 
                 // add image as background
                 JLabel contentPane = new JLabel();
@@ -321,6 +323,8 @@ public class TESTButtonsPanel {
                 newWindow.setSize(500, 500);  // Set the size of the new window
                 newWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close when clicked on X
                 newWindow.setLayout(null);
+                newWindow.setLocationRelativeTo(null); // Center the window on the screen
+
 
                 // add image as background
                 JLabel contentPane = new JLabel();

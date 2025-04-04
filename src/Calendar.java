@@ -98,7 +98,7 @@ public class Calendar extends JButton {
         JFrame newWindow = new JFrame("Day " + calenderDay);
         newWindow.setSize(500, 700);  // Set the size of the new window
         newWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close when clicked on X
-        newWindow.setLayout(null); // Use null layout for absolute positioning
+        newWindow.setLocationRelativeTo(null); // Center the window on the screen
         //setting panels with the png
 
         // add image as background
