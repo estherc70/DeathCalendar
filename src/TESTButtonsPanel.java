@@ -15,7 +15,7 @@ public class TESTButtonsPanel {
             talk1, talk2, talk3, talk4,
             interactKnife, interactDiary, interactHair,
             continueInfo, btnInventory, btnKnife,
-            btnDiary, bthHair;
+            btnDiary, bthHair, btnObjection;
     private JPanel btnPanel, megumiPage, joGoPage, goJoPage, nikkiPage;
     private TESTPanelClass displayPanel;
     private TESTCardLayoutPanel2 cardLayoutPanel2;
@@ -80,6 +80,8 @@ public class TESTButtonsPanel {
         btnDiary = new JButton();
         btnKnife = new JButton();
 
+        btnObjection = new JButton();
+
         btnNext = new JButton("Next Panel");
         infoButton = new JButton("InfoPage");
 
@@ -116,6 +118,7 @@ public class TESTButtonsPanel {
         customizeButton(btnKnife);
         customizeButton(bthHair);
         customizeButton(btnDiary);
+        customizeButton(btnObjection);
 
         // Set button size (optional to adjust the button size)
         startButton.setBounds(300, 400, 250, 120);  // Adjust the position and size of the start button
@@ -157,6 +160,8 @@ public class TESTButtonsPanel {
         bthHair.setBounds(355,392,178,50);
 
         btnInventory.setBounds(650, 430, 160, 160);
+
+        btnObjection.setBounds(355,392,178,50);
 
 
         btnPanel.add(startButton);
@@ -623,6 +628,10 @@ public class TESTButtonsPanel {
 
     public JButton getBtnKnife() {
         return btnKnife;
+    }
+
+    public JButton getBtnObjection() {
+        return btnObjection;
     }
 }
 
