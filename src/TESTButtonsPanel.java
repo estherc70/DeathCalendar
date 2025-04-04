@@ -165,7 +165,7 @@ public class TESTButtonsPanel {
         // When the introduce1 button is clicked, repaint the megumiPage
         introduce1.addActionListener(e -> {
             // Find the "Megumi" card by name
-            megumiPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(8); // Get Megumi card by index
+            megumiPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(9); // Get Megumi card by index
             // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
             if (megumiPage != null && megumiPage instanceof TESTPanelClass) {
                 ((TESTPanelClass) megumiPage).setMessage(goGo.introduce());  // Set message and repaint
@@ -175,7 +175,7 @@ public class TESTButtonsPanel {
 
         introduce2.addActionListener(e -> {
             // Find the "Megumi" card by name
-            joGoPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(7); // Get Megumi card by index
+            joGoPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(8); // Get Megumi card by index
             // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
             if (joGoPage != null && joGoPage instanceof TESTPanelClass) {
                 ((TESTPanelClass) joGoPage).setMessage(joGo.introduce());  // Set message and repaint
@@ -185,7 +185,7 @@ public class TESTButtonsPanel {
 
         introduce3.addActionListener(e -> {
             // Find the "Megumi" card by name
-            goJoPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(5); // Get Megumi card by index
+            goJoPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(6); // Get Megumi card by index
             // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
             if (goJoPage != null && goJoPage instanceof TESTPanelClass) {
                 ((TESTPanelClass) goJoPage).setMessage(gojo.introduce());  // Set message and repaint
@@ -195,7 +195,7 @@ public class TESTButtonsPanel {
 
         introduce4.addActionListener(e -> {
             // Find the "Megumi" card by name
-            nikkiPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(6); // Get Megumi card by index
+            nikkiPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(7); // Get Megumi card by index
             // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
             if (nikkiPage != null && nikkiPage instanceof TESTPanelClass) {
                 ((TESTPanelClass) nikkiPage).setMessage(nikki.introduce());  // Set message and repaint
@@ -205,7 +205,7 @@ public class TESTButtonsPanel {
 
         talk1.addActionListener(e -> {
             // Find the "Megumi" card by name
-            megumiPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(8); // Get Megumi card by index
+            megumiPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(9); // Get Megumi card by index
             // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
             if (megumiPage != null && megumiPage instanceof TESTPanelClass) {
                 ((TESTPanelClass) megumiPage).setMessage(goGo.talk());  // Set message and repaint
@@ -215,7 +215,7 @@ public class TESTButtonsPanel {
 
         talk2.addActionListener(e -> {
             // Find the "Megumi" card by name
-            joGoPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(7); // Get Megumi card by index
+            joGoPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(8); // Get Megumi card by index
             // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
             if (joGoPage != null && joGoPage instanceof TESTPanelClass) {
                 ((TESTPanelClass) joGoPage).setMessage(joGo.talk());  // Set message and repaint
@@ -225,7 +225,7 @@ public class TESTButtonsPanel {
 
         talk3.addActionListener(e -> {
             // Find the "Megumi" card by name
-            goJoPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(5); // Get Megumi card by index
+            goJoPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(6); // Get Megumi card by index
             // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
             if (goJoPage != null && goJoPage instanceof TESTPanelClass) {
                 ((TESTPanelClass) goJoPage).setMessage(gojo.talk());  // Set message and repaint
@@ -235,7 +235,7 @@ public class TESTButtonsPanel {
 
         talk4.addActionListener(e -> {
             // Find the "Megumi" card by name
-            nikkiPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(6); // Get Megumi card by index
+            nikkiPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(7); // Get Megumi card by index
             // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
             if (nikkiPage != null && nikkiPage instanceof TESTPanelClass) {
                 ((TESTPanelClass) nikkiPage).setMessage(nikki.talk());  // Set message and repaint
