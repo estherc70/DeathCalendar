@@ -92,7 +92,6 @@ public class Calendar extends JButton {
         }
     }
 
-
     // Method to open a new window
     private void openNewWindow(int calenderDay) {
         // Create the new window (JFrame)
@@ -101,16 +100,14 @@ public class Calendar extends JButton {
         newWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close when clicked on X
         newWindow.setLayout(null); // Use null layout for absolute positioning
         //setting panels with the png
-        String num = "src/journal/" + calenderDay + ".png";
-        JPanel panel = TESTPanelClass.createPanel("src/journal/1.png");
-        //panel.setLayout(null);
-        panel.setVisible(true);
-        newWindow.add(panel, "Day");
-//        // Add some content to the new window
-//        JLabel label = new JLabel("This day " + calenderDay + " of her diary");
-//        label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-//        label.setBounds(100, 300, 200, 30);
-//        newWindow.add(label);
+
+        // add image as background
+        String diaryDay = "src/journal/" + calenderDay + ".png";
+        JLabel contentPane = new JLabel();
+        ImageIcon imageIcon = new ImageIcon(diaryDay);
+        contentPane.setIcon(imageIcon);
+        contentPane.setLayout( new BorderLayout() );
+        newWindow.setContentPane( contentPane );
 
         // Make the new window visible
         newWindow.setVisible(true);

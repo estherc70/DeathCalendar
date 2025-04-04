@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class TESTButtonsPanel {
     private JButton startButton, btnDisclaimer, btnNext,
@@ -279,10 +280,12 @@ public class TESTButtonsPanel {
                  newWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close when clicked on X
                  newWindow.setLayout(null);
 
-                 JLabel label = new JLabel("You found a knife!");
-                 label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-                 label.setBounds(100, 300, 200, 30);
-                 newWindow.add(label);
+                 // add image as background
+                 JLabel contentPane = new JLabel();
+                 ImageIcon imageIcon = new ImageIcon("src/images/knife.png");
+                 contentPane.setIcon(imageIcon);
+                 contentPane.setLayout( new BorderLayout() );
+                 newWindow.setContentPane( contentPane );
 
                  // Make the new window visible
                  newWindow.setVisible(true);
@@ -298,10 +301,12 @@ public class TESTButtonsPanel {
                 newWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close when clicked on X
                 newWindow.setLayout(null);
 
-                JLabel label = new JLabel("You found a Diary!");
-                label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-                label.setBounds(100, 300, 200, 30);
-                newWindow.add(label);
+                // add image as background
+                JLabel contentPane = new JLabel();
+                ImageIcon imageIcon = new ImageIcon("src/images/diary.png");
+                contentPane.setIcon(imageIcon);
+                contentPane.setLayout( new BorderLayout() );
+                newWindow.setContentPane( contentPane );
 
                 // Make the new window visible
                 newWindow.setVisible(true);
@@ -317,10 +322,12 @@ public class TESTButtonsPanel {
                 newWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close when clicked on X
                 newWindow.setLayout(null);
 
-                JLabel label = new JLabel("You found a strand of hair!");
-                label.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-                label.setBounds(100, 300, 200, 30);
-                newWindow.add(label);
+                // add image as background
+                JLabel contentPane = new JLabel();
+                ImageIcon imageIcon = new ImageIcon("src/images/hair.png");
+                contentPane.setIcon(imageIcon);
+                contentPane.setLayout( new BorderLayout() );
+                newWindow.setContentPane( contentPane );
 
                 // Make the new window visible
                 newWindow.setVisible(true);
@@ -458,9 +465,9 @@ public class TESTButtonsPanel {
     }
 
     private void customizeButton(JButton button) {
-        button.setOpaque(true);
-        button.setContentAreaFilled(true);
-        button.setBorderPainted(true);
+        button.setOpaque(false);
+        button.setContentAreaFilled(false);
+        button.setBorderPainted(false);
     }
 
     // Method to create and return a panel that holds the buttons
