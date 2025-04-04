@@ -13,7 +13,8 @@ public class TESTButtonsPanel {
             introduce1, introduce2, introduce3, introduce4,
             talk1, talk2, talk3, talk4,
             interactKnife, interactDiary, interactHair,
-            continueInfo, btnInventory;
+            continueInfo, btnInventory, btnKnife,
+            btnDiary, bthHair;
     private JPanel btnPanel, megumiPage, joGoPage, goJoPage, nikkiPage;
     private TESTPanelClass displayPanel;
     private TESTCardLayoutPanel2 cardLayoutPanel2;
@@ -74,6 +75,10 @@ public class TESTButtonsPanel {
         talk3 = new JButton();
         talk4 = new JButton();
 
+        bthHair = new JButton();
+        btnDiary = new JButton();
+        btnKnife = new JButton();
+
         btnNext = new JButton("Next Panel");
         infoButton = new JButton("InfoPage");
 
@@ -107,6 +112,9 @@ public class TESTButtonsPanel {
         customizeButton(talk2);
         customizeButton(talk3);
         customizeButton(talk4);
+        customizeButton(btnKnife);
+        customizeButton(bthHair);
+        customizeButton(btnDiary);
 
         // Set button size (optional to adjust the button size)
         startButton.setBounds(300, 400, 250, 120);  // Adjust the position and size of the start button
@@ -142,6 +150,10 @@ public class TESTButtonsPanel {
         talk2.setBounds(515,195,250,70);
         talk3.setBounds(515,195,250,70);
         talk4.setBounds(515,195,250,70);
+
+        btnKnife.setBounds(180,230,178,50);
+        btnDiary.setBounds(565,250,178,50);
+        bthHair.setBounds(355,392,178,50);
 
         btnInventory.setBounds(650, 430, 160, 160);
 
@@ -455,6 +467,12 @@ public class TESTButtonsPanel {
             }
         });
 
+        btnInventory.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayoutPanel2.showCard("Inventory");
+            }
+        });
     }
 
     private void customizeButton(JButton button) {
@@ -582,6 +600,18 @@ public class TESTButtonsPanel {
 
     public JButton getBtnInventory() {
         return btnInventory;
+    }
+
+    public JButton getBthHair() {
+        return bthHair;
+    }
+
+    public JButton getBtnDiary() {
+        return btnDiary;
+    }
+
+    public JButton getBtnKnife() {
+        return btnKnife;
     }
 }
 

@@ -65,6 +65,11 @@ public class TESTCardLayoutPanel2 extends JFrame{
 
         calendarPanel.calendarPage.add(buttonsPanel.getBtnSuspects());
         calendarPanel.calendarPage.add(buttonsPanel.getBtnInventory());
+
+        inventoryPage.add(buttonsPanel.getBthHair());
+        inventoryPage.add(buttonsPanel.getBtnDiary());
+        inventoryPage.add(buttonsPanel.getBtnKnife());
+
         suspectPage.add(buttonsPanel.getBtnReady());
 
         suspectPage.add(buttonsPanel.geteGojo());
