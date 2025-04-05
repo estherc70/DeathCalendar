@@ -134,10 +134,10 @@ public class TESTButtonsPanel {
         btnSuspects.setBounds(640, 275, 175, 125);
         btnReady.setBounds(279, 430, 325, 90);
 
-        interactKnife.setBounds(500,285,120,35);
-        interactDiary.setBounds(750,300,120,35);
-        interactHair.setBounds(735,405,120,35);
-        continueInfo.setBounds(650,550,200,53);
+        interactKnife.setBounds(500,305,120,35);
+        interactDiary.setBounds(750,320,120,35);
+        interactHair.setBounds(735,435,120,35);
+        continueInfo.setBounds(650,580,200,53);
 
         btnGojo.setBounds(140, 410, 300, 80);
         btnJoGo.setBounds(445, 410, 300, 80);
@@ -285,9 +285,10 @@ public class TESTButtonsPanel {
         btnDisclaimer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                btnNext.setVisible(true);
-                btnPanel.add(btnNext, BorderLayout.EAST);
+//                btnNext.setVisible(true);
+//                btnPanel.add(btnNext, BorderLayout.EAST);
                 cardLayoutPanel2.showCard("Info");
+//                infoButton.setVisible(true);
             }
         });
 
@@ -297,7 +298,7 @@ public class TESTButtonsPanel {
                 CardLayout cl = (CardLayout)(cardLayoutPanel2.getMainPanel().getLayout());
                 cl.show(cardLayoutPanel2.getMainPanel(), "Info");  // Show the first panel
                 infoButton.setVisible(false);
-                btnNext.setVisible(true);
+//                btnNext.setVisible(true);
             }
         });
 
@@ -320,6 +321,7 @@ public class TESTButtonsPanel {
                  // Make the new window visible
                  newWindow.setVisible(true);
                  inventory.setKnife(true);
+                 newWindow.setResizable(false); // Disable resizing the window
              }
          });
 
@@ -342,6 +344,7 @@ public class TESTButtonsPanel {
                 // Make the new window visible
                 newWindow.setVisible(true);
                 inventory.setDiary(true);
+                newWindow.setResizable(false); // Disable resizing the window
             }
         });
 
@@ -365,6 +368,7 @@ public class TESTButtonsPanel {
                 // Make the new window visible
                 newWindow.setVisible(true);
                 inventory.setHair(true);
+                newWindow.setResizable(false); // Disable resizing the window
             }
         });
 
@@ -373,19 +377,21 @@ public class TESTButtonsPanel {
             public void actionPerformed(ActionEvent e) {
                 CardLayout cl = (CardLayout) (cardLayoutPanel2.getMainPanel().getLayout());
                 cl.next(cardLayoutPanel2.getMainPanel());  // Switch to the next card
+                btnPanel.add(infoButton, BorderLayout.WEST);
+                infoButton.setVisible(true);
             }
         });
 
-        btnNext.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                CardLayout cl = (CardLayout) (cardLayoutPanel2.getMainPanel().getLayout());
-                cl.next(cardLayoutPanel2.getMainPanel());  // Switch to the next card
-                btnPanel.add(infoButton, BorderLayout.WEST);
-                infoButton.setVisible(true);
-                btnNext.setVisible(true);
-            }
-        });
+//        btnNext.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                CardLayout cl = (CardLayout) (cardLayoutPanel2.getMainPanel().getLayout());
+//                cl.next(cardLayoutPanel2.getMainPanel());  // Switch to the next card
+//                btnPanel.add(infoButton, BorderLayout.WEST);
+//                infoButton.setVisible(true);
+//                btnNext.setVisible(true);
+//            }
+//        });
 
         btnSuspects.addActionListener(new ActionListener() {
             @Override
@@ -535,6 +541,7 @@ public class TESTButtonsPanel {
 
                 // Make the new window visible
                 newWindow.setVisible(true);
+                newWindow.setResizable(false); // Disable resizing the window
             }
         });
 
@@ -571,6 +578,7 @@ public class TESTButtonsPanel {
 
                 // Make the new window visible
                 newWindow.setVisible(true);
+                newWindow.setResizable(false); // Disable resizing the window
             }
         });
 
@@ -606,6 +614,7 @@ public class TESTButtonsPanel {
 
                 // Make the new window visible
                 newWindow.setVisible(true);
+                newWindow.setResizable(false); // Disable resizing the window
             }
         });
 
