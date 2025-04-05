@@ -126,6 +126,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
         murdererPage.add(buttonsPanel.getBtnNikki());
 
         objectionPage.add(buttonsPanel.getBtnObjection());
+        whyPage.add(buttonsPanel.getBtnLost());
 
         calendarPanel.calendarPage.add(knife);
         calendarPanel.calendarPage.add(diary);

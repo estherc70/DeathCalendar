@@ -16,7 +16,8 @@ public class TESTButtonsPanel {
             specialTalk1, specialTalk2, specialTalk3, specialTalk4,
             interactKnife, interactDiary, interactHair,
             continueInfo, btnInventory, btnKnife,
-            btnDiary, btnHair, btnObjection;
+            btnDiary, btnHair, btnObjection,
+            btnLost;
     private JPanel btnPanel, megumiPage, joGoPage, goJoPage, nikkiPage;
     private TESTCardLayoutPanel2 cardLayoutPanel2;
     private GogoDialogue goGo;
@@ -24,10 +25,12 @@ public class TESTButtonsPanel {
     private GojoDialogue gojo;
     private NikkiDialogue nikki;
     private Inventory inventory;
+    private String nothing;
 
 
     public TESTButtonsPanel(TESTCardLayoutPanel2 cardLayoutPanel2) {
         inventory = new Inventory();
+        nothing = "You aren't holding an item...";
 
         // Create button panel ***
         btnPanel = new JPanel(new BorderLayout());
@@ -85,6 +88,7 @@ public class TESTButtonsPanel {
         btnKnife = new JButton();
 
         btnObjection = new JButton();
+        btnLost = new JButton();
 
         btnNext = new JButton("Next Panel");
         infoButton = new JButton("InfoPage");
@@ -127,6 +131,7 @@ public class TESTButtonsPanel {
         customizeButton(btnHair);
         customizeButton(btnDiary);
         customizeButton(btnObjection);
+        customizeButton(btnLost);
 
         // Set button size (optional to adjust the button size)
         startButton.setBounds(300, 400, 250, 120);  // Adjust the position and size of the start button
@@ -175,6 +180,7 @@ public class TESTButtonsPanel {
         btnInventory.setBounds(650, 430, 160, 160);
 
         btnObjection.setBounds(595,560,250,70);
+        btnLost.setBounds(127, 522, 200, 55);
 
         btnPanel.add(startButton);
         btnPanel.add(btnDisclaimer);
@@ -270,6 +276,110 @@ public class TESTButtonsPanel {
             if (nikkiPage != null && nikkiPage instanceof TESTPanelClass) {
                 ((TESTPanelClass) nikkiPage).setMessage(nikki.talk());  // Set message and repaint
                 nikkiPage.repaint();  // Force repaint after setting message
+            }
+        });
+
+        specialTalk1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                megumiPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(9); // Get Megumi card by index
+                // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
+                if (megumiPage != null && megumiPage instanceof TESTPanelClass) {
+                    if (inventory.getHoldingKnife()) {
+                        // special talk knife
+                        ((TESTPanelClass) megumiPage).setMessage(goGo.specialTalkKnife());  // Set message and repaint
+                        megumiPage.repaint();  // Force repaint after setting message
+                    } else if (inventory.getHoldingDiary()) {
+                        // special talk diary
+                        ((TESTPanelClass) megumiPage).setMessage(goGo.specialTalkDiary());  // Set message and repaint
+                        megumiPage.repaint();  // Force repaint after setting message
+                    } else if (inventory.getHoldingHair()) {
+                        //special talk hair
+                        ((TESTPanelClass) megumiPage).setMessage(goGo.specialTalkHair());  // Set message and repaint
+                        megumiPage.repaint();  // Force repaint after setting message
+                    } else {
+                        ((TESTPanelClass) megumiPage).setMessage(nothing);  // Set message and repaint
+                        megumiPage.repaint();  // Force repaint after setting message
+                    }
+                }
+            }
+        });
+
+        specialTalk2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                joGoPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(8); // Get Megumi card by index
+                // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
+                if (joGoPage != null && joGoPage instanceof TESTPanelClass) {
+                    if (inventory.getHoldingKnife()) {
+                        // special talk knife
+                        ((TESTPanelClass) joGoPage).setMessage(joGo.specialTalkKnife());  // Set message and repaint
+                        joGoPage.repaint();  // Force repaint after setting message
+                    } else if (inventory.getHoldingDiary()) {
+                        // special talk diary
+                        ((TESTPanelClass) joGoPage).setMessage(joGo.specialTalkDiary());  // Set message and repaint
+                        joGoPage.repaint();  // Force repaint after setting message
+                    } else if (inventory.getHoldingHair()) {
+                        //special talk hair
+                        ((TESTPanelClass) joGoPage).setMessage(joGo.specialTalkHair());  // Set message and repaint
+                        joGoPage.repaint();  // Force repaint after setting message
+                    } else {
+                        ((TESTPanelClass) joGoPage).setMessage(nothing);  // Set message and repaint
+                        joGoPage.repaint();  // Force repaint after setting message
+                    }
+                }
+            }
+        });
+
+        specialTalk3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                goJoPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(6); // Get Megumi card by index
+                // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
+                if (goJoPage != null && goJoPage instanceof TESTPanelClass) {
+                    if (inventory.getHoldingKnife()) {
+                        // special talk knife
+                        ((TESTPanelClass) goJoPage).setMessage(gojo.specialTalkKnife());  // Set message and repaint
+                        goJoPage.repaint();  // Force repaint after setting message
+                    } else if (inventory.getHoldingDiary()) {
+                        // special talk diary
+                        ((TESTPanelClass) goJoPage).setMessage(gojo.specialTalkDiary());  // Set message and repaint
+                        goJoPage.repaint();  // Force repaint after setting message
+                    } else if (inventory.getHoldingHair()) {
+                        //special talk hair
+                        ((TESTPanelClass) goJoPage).setMessage(gojo.specialTalkHair());  // Set message and repaint
+                        goJoPage.repaint();  // Force repaint after setting message
+                    } else {
+                        ((TESTPanelClass) goJoPage).setMessage(nothing);  // Set message and repaint
+                        goJoPage.repaint();  // Force repaint after setting message
+                    }
+                }
+            }
+        });
+
+        specialTalk4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                nikkiPage = (JPanel) cardLayoutPanel2.getMainPanel().getComponent(7); // Get Megumi card by index
+                // or access it using `cardLayoutPanel2.getMainPanel().getComponent("Megumi");` - Update method, get it by card name!
+                if (nikkiPage != null && nikkiPage instanceof TESTPanelClass) {
+                    if (inventory.getHoldingKnife()) {
+                        // special talk knife
+                        ((TESTPanelClass) nikkiPage).setMessage(nikki.specialTalkKnife());  // Set message and repaint
+                        nikkiPage.repaint();  // Force repaint after setting message
+                    } else if (inventory.getHoldingDiary()) {
+                        // special talk diary
+                        ((TESTPanelClass) nikkiPage).setMessage(nikki.specialTalkDiary());  // Set message and repaint
+                        nikkiPage.repaint();  // Force repaint after setting message
+                    } else if (inventory.getHoldingHair()) {
+                        //special talk hair
+                        ((TESTPanelClass) nikkiPage).setMessage(nikki.specialTalkHair());  // Set message and repaint
+                        nikkiPage.repaint();  // Force repaint after setting message
+                    } else {
+                        ((TESTPanelClass) nikkiPage).setMessage(nothing);  // Set message and repaint
+                        nikkiPage.repaint();  // Force repaint after setting message
+                    }
+                }
             }
         });
     }
@@ -625,55 +735,12 @@ public class TESTButtonsPanel {
             }
         });
 
-        specialTalk1.addActionListener(new ActionListener() {
+        btnLost.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (inventory.getHoldingKnife()) {
-                    // special talk knife
-                } else if (inventory.getHoldingDiary()) {
-                    // special talk diary
-                } else if (inventory.getHoldingHair()) {
-                    //special talk hair
-                }
-            }
-        });
-
-        specialTalk2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (inventory.getHoldingKnife()) {
-                    // special talk knife
-                } else if (inventory.getHoldingDiary()) {
-                    // special talk diary
-                } else if (inventory.getHoldingHair()) {
-                    //special talk hair
-                }
-            }
-        });
-
-        specialTalk3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (inventory.getHoldingKnife()) {
-                    // special talk knife
-                } else if (inventory.getHoldingDiary()) {
-                    // special talk diary
-                } else if (inventory.getHoldingHair()) {
-                    //special talk hair
-                }
-            }
-        });
-
-        specialTalk4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (inventory.getHoldingKnife()) {
-                    // special talk knife
-                } else if (inventory.getHoldingDiary()) {
-                    // special talk diary
-                } else if (inventory.getHoldingHair()) {
-                    //special talk hair
-                }
+                infoButton.setVisible(false);
+                btnNext.setVisible(false);
+                cardLayoutPanel2.showCard("Bad Ending");
             }
         });
     }
@@ -835,6 +902,10 @@ public class TESTButtonsPanel {
 
     public JButton getBtnObjection() {
         return btnObjection;
+    }
+
+    public JButton getBtnLost() {
+        return btnLost;
     }
 }
 

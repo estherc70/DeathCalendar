@@ -14,4 +14,16 @@ public class GojoDialogue extends SuspectDialogue{
             return super.talk() + " Love is the most twisted curse of all.";
         }
     }
+
+    public String specialTalkKnife() {
+        return "I don't know this knife. I would never kill my wife.";
+    }
+
+    public String specialTalkDiary() {
+        return "Oh I know that! It's her diary isn't it? I've seen her writing in it multiple times.";
+    }
+
+    public String specialTalkHair() {
+        return "Don't you see my hair is white? Please let me out of here so I can mourn for my dead wife.";
+    }
 }
