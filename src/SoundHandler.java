@@ -27,7 +27,7 @@ public class SoundHandler {
 
             Clip clip = AudioSystem.getClip();
             clip.open(convertedStream);
-            clip.loop(0); // play once, change to loop(Clip.LOOP_CONTINUOUSLY) if needed
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
 
         } catch (UnsupportedAudioFileException | IOException e) {
             e.printStackTrace();
