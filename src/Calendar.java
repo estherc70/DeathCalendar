@@ -111,6 +111,7 @@ public class Calendar extends JButton {
 
         // Make the new window visible
         newWindow.setVisible(true);
+        newWindow.setResizable(false); // Disable resizing the window
     }
 
     public JPanel getCalendarPage() {

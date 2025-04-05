@@ -13,11 +13,11 @@ public class TESTButtonsPanel {
             btnReturn2, btnReturn3, btnReturn4,
             introduce1, introduce2, introduce3, introduce4,
             talk1, talk2, talk3, talk4,
+            specialTalk1, specialTalk2, specialTalk3, specialTalk4,
             interactKnife, interactDiary, interactHair,
             continueInfo, btnInventory, btnKnife,
-            btnDiary, bthHair, btnObjection;
+            btnDiary, btnHair, btnObjection;
     private JPanel btnPanel, megumiPage, joGoPage, goJoPage, nikkiPage;
-    private TESTPanelClass displayPanel;
     private TESTCardLayoutPanel2 cardLayoutPanel2;
     private GogoDialogue goGo;
     private JoGoDiagolue joGo;
@@ -30,7 +30,6 @@ public class TESTButtonsPanel {
         inventory = new Inventory();
 
         // Create button panel ***
-        displayPanel = new TESTPanelClass();
         btnPanel = new JPanel(new BorderLayout());
         this.cardLayoutPanel2 = cardLayoutPanel2;
         goGo = new GogoDialogue("Gogo",12,"step-son");
@@ -76,7 +75,12 @@ public class TESTButtonsPanel {
         talk3 = new JButton();
         talk4 = new JButton();
 
-        bthHair = new JButton();
+        specialTalk1 = new JButton();
+        specialTalk2 = new JButton();
+        specialTalk3 = new JButton();
+        specialTalk4 = new JButton();
+
+        btnHair = new JButton();
         btnDiary = new JButton();
         btnKnife = new JButton();
 
@@ -115,8 +119,12 @@ public class TESTButtonsPanel {
         customizeButton(talk2);
         customizeButton(talk3);
         customizeButton(talk4);
+        customizeButton(specialTalk1);
+        customizeButton(specialTalk2);
+        customizeButton(specialTalk3);
+        customizeButton(specialTalk4);
         customizeButton(btnKnife);
-        customizeButton(bthHair);
+        customizeButton(btnHair);
         customizeButton(btnDiary);
         customizeButton(btnObjection);
 
@@ -126,10 +134,10 @@ public class TESTButtonsPanel {
         btnSuspects.setBounds(640, 275, 175, 125);
         btnReady.setBounds(279, 430, 325, 90);
 
-        interactKnife.setBounds(500,285,120,35);
-        interactDiary.setBounds(750,300,120,35);
-        interactHair.setBounds(735,405,120,35);
-        continueInfo.setBounds(650,550,200,53);
+        interactKnife.setBounds(500,305,120,35);
+        interactDiary.setBounds(750,320,120,35);
+        interactHair.setBounds(735,435,120,35);
+        continueInfo.setBounds(650,580,200,53);
 
         btnGojo.setBounds(140, 410, 300, 80);
         btnJoGo.setBounds(445, 410, 300, 80);
@@ -155,14 +163,18 @@ public class TESTButtonsPanel {
         talk3.setBounds(515,195,250,70);
         talk4.setBounds(515,195,250,70);
 
+        specialTalk1.setBounds(515,300,250,70);
+        specialTalk2.setBounds(515,300,250,70);
+        specialTalk3.setBounds(515,300,250,70);
+        specialTalk4.setBounds(515,300,250,70);
+
         btnKnife.setBounds(180,230,178,50);
         btnDiary.setBounds(565,250,178,50);
-        bthHair.setBounds(355,392,178,50);
+        btnHair.setBounds(355,392,178,50);
 
         btnInventory.setBounds(650, 430, 160, 160);
 
         btnObjection.setBounds(595,560,250,70);
-
 
         btnPanel.add(startButton);
         btnPanel.add(btnDisclaimer);
@@ -273,9 +285,10 @@ public class TESTButtonsPanel {
         btnDisclaimer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                btnNext.setVisible(true);
-                btnPanel.add(btnNext, BorderLayout.EAST);
+//                btnNext.setVisible(true);
+//                btnPanel.add(btnNext, BorderLayout.EAST);
                 cardLayoutPanel2.showCard("Info");
+//                infoButton.setVisible(true);
             }
         });
 
@@ -285,7 +298,7 @@ public class TESTButtonsPanel {
                 CardLayout cl = (CardLayout)(cardLayoutPanel2.getMainPanel().getLayout());
                 cl.show(cardLayoutPanel2.getMainPanel(), "Info");  // Show the first panel
                 infoButton.setVisible(false);
-                btnNext.setVisible(true);
+//                btnNext.setVisible(true);
             }
         });
 
@@ -308,6 +321,7 @@ public class TESTButtonsPanel {
                  // Make the new window visible
                  newWindow.setVisible(true);
                  inventory.setKnife(true);
+                 newWindow.setResizable(false); // Disable resizing the window
              }
          });
 
@@ -330,6 +344,7 @@ public class TESTButtonsPanel {
                 // Make the new window visible
                 newWindow.setVisible(true);
                 inventory.setDiary(true);
+                newWindow.setResizable(false); // Disable resizing the window
             }
         });
 
@@ -353,6 +368,7 @@ public class TESTButtonsPanel {
                 // Make the new window visible
                 newWindow.setVisible(true);
                 inventory.setHair(true);
+                newWindow.setResizable(false); // Disable resizing the window
             }
         });
 
@@ -361,19 +377,21 @@ public class TESTButtonsPanel {
             public void actionPerformed(ActionEvent e) {
                 CardLayout cl = (CardLayout) (cardLayoutPanel2.getMainPanel().getLayout());
                 cl.next(cardLayoutPanel2.getMainPanel());  // Switch to the next card
+                btnPanel.add(infoButton, BorderLayout.WEST);
+                infoButton.setVisible(true);
             }
         });
 
-        btnNext.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                CardLayout cl = (CardLayout) (cardLayoutPanel2.getMainPanel().getLayout());
-                cl.next(cardLayoutPanel2.getMainPanel());  // Switch to the next card
-                btnPanel.add(infoButton, BorderLayout.WEST);
-                infoButton.setVisible(true);
-                btnNext.setVisible(true);
-            }
-        });
+//        btnNext.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                CardLayout cl = (CardLayout) (cardLayoutPanel2.getMainPanel().getLayout());
+//                cl.next(cardLayoutPanel2.getMainPanel());  // Switch to the next card
+//                btnPanel.add(infoButton, BorderLayout.WEST);
+//                infoButton.setVisible(true);
+//                btnNext.setVisible(true);
+//            }
+//        });
 
         btnSuspects.addActionListener(new ActionListener() {
             @Override
@@ -494,6 +512,168 @@ public class TESTButtonsPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayoutPanel2.showCard("Why");
+            }
+        });
+
+        btnKnife.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame newWindow = new JFrame("Equipping Item");
+                newWindow.setSize(500, 500);  // Set the size of the new window
+                newWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close when clicked on X
+                newWindow.setLayout(null);
+                newWindow.setLocationRelativeTo(null); // Center the window on the screen
+
+                // add image as background
+                JLabel contentPane = new JLabel();
+                ImageIcon imageIcon;
+
+                if (inventory.getKnife()) {
+                    imageIcon = new ImageIcon("src/images/ItemEquipped.png");
+                    cardLayoutPanel2.getKnife().setVisible(true);
+                    cardLayoutPanel2.showCard("Calendar");
+                    cardLayoutPanel2.getHair().setVisible(false);
+                    cardLayoutPanel2.getDiary().setVisible(false);
+                    inventory.setHoldingKnife(true);
+                } else {
+                    imageIcon = new ImageIcon("src/images/ItemWarning.png");
+                    cardLayoutPanel2.getKnife().setVisible(false);
+                    inventory.setHoldingHair(false);
+                    inventory.setHoldingDiary(false);
+                }
+
+                contentPane.setIcon(imageIcon);
+                contentPane.setLayout( new BorderLayout() );
+                newWindow.setContentPane( contentPane );
+
+                // Make the new window visible
+                newWindow.setVisible(true);
+                newWindow.setResizable(false); // Disable resizing the window
+            }
+        });
+
+        btnDiary.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame newWindow = new JFrame("Equipping Item");
+                newWindow.setSize(500, 500);  // Set the size of the new window
+                newWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close when clicked on X
+                newWindow.setLayout(null);
+                newWindow.setLocationRelativeTo(null); // Center the window on the screen
+
+                // add image as background
+                JLabel contentPane = new JLabel();
+                ImageIcon imageIcon;
+
+                if (inventory.getDiary()) {
+                    imageIcon = new ImageIcon("src/images/ItemEquipped.png");
+                    cardLayoutPanel2.getDiary().setVisible(true);
+                    cardLayoutPanel2.showCard("Calendar");
+                    cardLayoutPanel2.getKnife().setVisible(false);
+                    cardLayoutPanel2.getHair().setVisible(false);
+                    inventory.setHoldingDiary(true);
+                } else {
+                    imageIcon = new ImageIcon("src/images/ItemWarning.png");
+                    cardLayoutPanel2.getDiary().setVisible(false);
+                    inventory.setHoldingKnife(false);
+                    inventory.setHoldingHair(false);
+                }
+
+                contentPane.setIcon(imageIcon);
+                contentPane.setLayout( new BorderLayout() );
+                newWindow.setContentPane( contentPane );
+
+                // Make the new window visible
+                newWindow.setVisible(true);
+                newWindow.setResizable(false); // Disable resizing the window
+            }
+        });
+
+        btnHair.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame newWindow = new JFrame("Equipping Item");
+                newWindow.setSize(500, 500);  // Set the size of the new window
+                newWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  // Close when clicked on X
+                newWindow.setLayout(null);
+                newWindow.setLocationRelativeTo(null); // Center the window on the screen
+
+                // add image as background
+                JLabel contentPane = new JLabel();
+                ImageIcon imageIcon;
+
+                if (inventory.getHair()) {
+                    imageIcon = new ImageIcon("src/images/ItemEquipped.png");
+                    cardLayoutPanel2.getHair().setVisible(true);
+                    cardLayoutPanel2.showCard("Calendar");
+                    cardLayoutPanel2.getKnife().setVisible(false);
+                    cardLayoutPanel2.getDiary().setVisible(false);
+                } else {
+                    imageIcon = new ImageIcon("src/images/ItemWarning.png");
+                    cardLayoutPanel2.getHair().setVisible(false);
+                    inventory.setHoldingKnife(false);
+                    inventory.setHoldingDiary(false);
+                }
+
+                contentPane.setIcon(imageIcon);
+                contentPane.setLayout( new BorderLayout() );
+                newWindow.setContentPane( contentPane );
+
+                // Make the new window visible
+                newWindow.setVisible(true);
+                newWindow.setResizable(false); // Disable resizing the window
+            }
+        });
+
+        specialTalk1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (inventory.getHoldingKnife()) {
+                    // special talk knife
+                } else if (inventory.getHoldingDiary()) {
+                    // special talk diary
+                } else if (inventory.getHoldingHair()) {
+                    //special talk hair
+                }
+            }
+        });
+
+        specialTalk2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (inventory.getHoldingKnife()) {
+                    // special talk knife
+                } else if (inventory.getHoldingDiary()) {
+                    // special talk diary
+                } else if (inventory.getHoldingHair()) {
+                    //special talk hair
+                }
+            }
+        });
+
+        specialTalk3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (inventory.getHoldingKnife()) {
+                    // special talk knife
+                } else if (inventory.getHoldingDiary()) {
+                    // special talk diary
+                } else if (inventory.getHoldingHair()) {
+                    //special talk hair
+                }
+            }
+        });
+
+        specialTalk4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (inventory.getHoldingKnife()) {
+                    // special talk knife
+                } else if (inventory.getHoldingDiary()) {
+                    // special talk diary
+                } else if (inventory.getHoldingHair()) {
+                    //special talk hair
+                }
             }
         });
     }
@@ -625,8 +805,8 @@ public class TESTButtonsPanel {
         return btnInventory;
     }
 
-    public JButton getBthHair() {
-        return bthHair;
+    public JButton getBtnHair() {
+        return btnHair;
     }
 
     public JButton getBtnDiary() {
@@ -635,6 +815,22 @@ public class TESTButtonsPanel {
 
     public JButton getBtnKnife() {
         return btnKnife;
+    }
+
+    public JButton getSpecialTalk1() {
+        return specialTalk1;
+    }
+
+    public JButton getSpecialTalk2() {
+        return specialTalk2;
+    }
+
+    public JButton getSpecialTalk3() {
+        return specialTalk3;
+    }
+
+    public JButton getSpecialTalk4() {
+        return specialTalk4;
     }
 
     public JButton getBtnObjection() {
