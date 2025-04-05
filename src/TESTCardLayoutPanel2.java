@@ -33,6 +33,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
         JPanel murdererPage = TESTPanelClass.createPanel("src/images/PickTheMurderer.png");
         JPanel goodEndingPage = TESTPanelClass.createPanel("src/images/GoodEnding.png");
         JPanel objectionPage = TESTPanelClass.createPanel("src/images/Objection.png");
+        JPanel whyPage = TESTPanelClass.createPanel("src/images/Why.png");
         JPanel badEndingPage = TESTPanelClass.createPanel("src/images/BadEnding.png");
 //        JPanel goodEnding = new JPanel();
 //        ImageIcon good = new ImageIcon("src/images/GoodEnding.png");
@@ -46,6 +47,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
         calendarPanel.getCalendarPage().setLayout(null);
         suspectPage.setLayout(null);
         inventoryPage.setLayout(null);
+        objectionPage.setLayout(null);
 
         gojoPage.setLayout(null);
         joGoPage.setLayout(null);
@@ -53,6 +55,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
         megumiPage.setLayout(null);
 
         murdererPage.setLayout(null);
+        whyPage.setLayout(null);
 
         // Add specific buttons for specific card panels
         startPage.add(buttonsPanel.getStartButton());
@@ -98,6 +101,8 @@ public class TESTCardLayoutPanel2 extends JFrame{
         murdererPage.add(buttonsPanel.getBtnGogo());
         murdererPage.add(buttonsPanel.getBtnNikki());
 
+        objectionPage.add(buttonsPanel.getBtnObjection());
+
 
         mainPanel.add(startPage, "Start");
         mainPanel.add(disclaimerPage, "Disclaimer");
@@ -112,6 +117,7 @@ public class TESTCardLayoutPanel2 extends JFrame{
         mainPanel.add(murdererPage, "Pick the Murderer");
         mainPanel.add(goodEndingPage, "Good Ending");
         mainPanel.add(objectionPage,"Objection");
+        mainPanel.add(whyPage,"Why");
         mainPanel.add(badEndingPage, "Bad Ending");
 
         Container pane = getContentPane();

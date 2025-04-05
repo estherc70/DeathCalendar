@@ -161,7 +161,7 @@ public class TESTButtonsPanel {
 
         btnInventory.setBounds(650, 430, 160, 160);
 
-        btnObjection.setBounds(355,392,178,50);
+        btnObjection.setBounds(595,560,250,70);
 
 
         btnPanel.add(startButton);
@@ -489,12 +489,19 @@ public class TESTButtonsPanel {
                 cardLayoutPanel2.showCard("Inventory");
             }
         });
+
+        btnObjection.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayoutPanel2.showCard("Why");
+            }
+        });
     }
 
     private void customizeButton(JButton button) {
-        button.setOpaque(false);
-        button.setContentAreaFilled(false);
-        button.setBorderPainted(false);
+        button.setOpaque(true);
+        button.setContentAreaFilled(true);
+        button.setBorderPainted(true);
     }
 
     // Method to create and return a panel that holds the buttons
