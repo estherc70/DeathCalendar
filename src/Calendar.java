@@ -19,6 +19,9 @@ public class Calendar extends JButton {
         // create buttons
         for (int i = 0; i < allDays.length; i++) {
             allDays[i] = new JButton();
+            allDays[i].setOpaque(false);
+            allDays[i].setContentAreaFilled(false);
+            allDays[i].setBorderPainted(false);
 
             int dayNumber = i + 1;
             allDays[i].addActionListener(new ActionListener() {

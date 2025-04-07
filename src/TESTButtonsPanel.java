@@ -762,9 +762,9 @@ public class TESTButtonsPanel {
     }
 
     private void customizeButton(JButton button) {
-        button.setOpaque(true);
-        button.setContentAreaFilled(true);
-        button.setBorderPainted(true);
+        button.setOpaque(false);
+        button.setContentAreaFilled(false);
+        button.setBorderPainted(false);
     }
 
     // Method to create and return a panel that holds the buttons
