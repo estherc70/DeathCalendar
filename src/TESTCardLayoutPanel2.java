@@ -1,7 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 
-
+//https://stackoverflow.com/questions/20601505/java-how-to-add-a-button-to-a-frame
+//https://docs.oracle.com/javase/tutorial/uiswing/layout/card.html
 public class TESTCardLayoutPanel2 extends JFrame{
     private JPanel mainPanel;
     private TESTButtonsPanel buttonsPanel;
