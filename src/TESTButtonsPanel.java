@@ -343,6 +343,7 @@ public class TESTButtonsPanel {
                         joGoPage.repaint();  // Force repaint after setting message
                     }
                 }
+                introduceDialogue();
             }
         });
 
