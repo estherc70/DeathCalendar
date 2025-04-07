@@ -924,7 +924,5 @@ public class TESTButtonsPanel {
     public JButton getBtnLost() {
         return btnLost;
     }
-
-
 }
 
