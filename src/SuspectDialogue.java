@@ -11,7 +11,7 @@ public class SuspectDialogue {
     }
 
     public String introduce() {
-        return "My name is " + name + ". I am " + age + " years old. My relationship to the decreased was " + relationship + ".";
+        return "My name is " + name + ". I am " + age + " years old. My relationship to the deceased was " + relationship + ".";
     }
 
     public String talk() {
