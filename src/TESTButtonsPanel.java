@@ -645,11 +645,11 @@ public class TESTButtonsPanel {
                     cardLayoutPanel2.getHair().setVisible(false);
                     cardLayoutPanel2.getDiary().setVisible(false);
                     inventory.setHoldingKnife(true);
+                    inventory.setHoldingHair(false);
+                    inventory.setHoldingDiary(false);
                 } else {
                     imageIcon = new ImageIcon("src/images/ItemWarning.png");
                     cardLayoutPanel2.getKnife().setVisible(false);
-                    inventory.setHoldingHair(false);
-                    inventory.setHoldingDiary(false);
                 }
 
                 contentPane.setIcon(imageIcon);
@@ -682,11 +682,11 @@ public class TESTButtonsPanel {
                     cardLayoutPanel2.getKnife().setVisible(false);
                     cardLayoutPanel2.getHair().setVisible(false);
                     inventory.setHoldingDiary(true);
+                    inventory.setHoldingKnife(false);
+                    inventory.setHoldingHair(false);
                 } else {
                     imageIcon = new ImageIcon("src/images/ItemWarning.png");
                     cardLayoutPanel2.getDiary().setVisible(false);
-                    inventory.setHoldingKnife(false);
-                    inventory.setHoldingHair(false);
                 }
 
                 contentPane.setIcon(imageIcon);
@@ -718,11 +718,12 @@ public class TESTButtonsPanel {
                     cardLayoutPanel2.showCard("Calendar");
                     cardLayoutPanel2.getKnife().setVisible(false);
                     cardLayoutPanel2.getDiary().setVisible(false);
+                    inventory.setHoldingHair(true);
+                    inventory.setHoldingKnife(false);
+                    inventory.setHoldingDiary(false);
                 } else {
                     imageIcon = new ImageIcon("src/images/ItemWarning.png");
                     cardLayoutPanel2.getHair().setVisible(false);
-                    inventory.setHoldingKnife(false);
-                    inventory.setHoldingDiary(false);
                 }
 
                 contentPane.setIcon(imageIcon);
