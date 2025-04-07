@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.ArrayList;
 
 public class TESTButtonsPanel {
     private JButton startButton, btnDisclaimer, btnNext,
@@ -26,6 +27,20 @@ public class TESTButtonsPanel {
     private NikkiDialogue nikki;
     private Inventory inventory;
     private String nothing;
+
+    private void introduceDialogue() {
+        ArrayList<SuspectDialogue> a = new ArrayList<>();
+        a.add(goGo);
+        a.add(joGo);
+        a.add(nikki);
+        a.add(gojo);
+        for (SuspectDialogue nextSuspect : a) {
+            if (nextSuspect instanceof GojoDialogue) {
+                GojoDialogue casted = (GojoDialogue) nextSuspect;
+                casted.specialTalkKnife();
+            }
+        }
+    }
 
 
     public TESTButtonsPanel(TESTCardLayoutPanel2 cardLayoutPanel2) {
@@ -908,5 +923,7 @@ public class TESTButtonsPanel {
     public JButton getBtnLost() {
         return btnLost;
     }
+
+
 }
 

@@ -24,4 +24,6 @@ public class SuspectDialogue {
             return "I'm innocent. Get me out of here!!!";
         }
     }
+
+
 }
