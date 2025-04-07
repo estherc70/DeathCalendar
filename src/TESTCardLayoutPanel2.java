@@ -36,7 +36,6 @@ public class TESTCardLayoutPanel2 extends JFrame{
         hair.setBounds(685, 140, hairIcon.getIconWidth(), hairIcon.getIconHeight());
         hair.setVisible(false);
 
-
         JPanel startPage = TESTPanelClass.createPanel("src/images/StartBackground.PNG");
         JPanel disclaimerPage = TESTPanelClass.createPanel("src/images/Disclaimer.png");
         JPanel informationPage = TESTPanelClass.createPanel("src/images/InfoPage.png");
